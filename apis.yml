@@ -1,0 +1,32 @@
+aid: finage
+name: Finage
+description: "Finage is a stock, currency, cryptocurrency, indices, and ETFs real-time & historical data provider"
+url: https://finage.co.uk
+specificationVersion: '0.20'
+created: '2026-05-28'
+modified: '2026-05-28'
+x-source: public-apis/public-apis
+x-category: "Finance"
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
+tags:
+  - Finance
+  - Public APIs
+apis:
+  - name: Finage
+    description: "Finage is a stock, currency, cryptocurrency, indices, and ETFs real-time & historical data provider"
+    humanURL: https://finage.co.uk
+    baseURL: https://finage.co.uk
+    tags:
+      - Finance
+    properties:
+      - type: Documentation
+        url: https://finage.co.uk
+common:
+  - type: Website
+    url: https://finage.co.uk
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
