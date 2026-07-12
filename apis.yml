@@ -23,6 +23,8 @@ apis:
       - type: Documentation
         url: https://finage.co.uk
 common:
+  - type: DomainSecurity
+    url: security/finage-domain-security.yml
   - type: Website
     url: https://finage.co.uk
   - type: PublicAPIsListing
