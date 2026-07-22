@@ -1,0 +1,21 @@
+generated: '2026-07-22'
+method: generated
+source: >-
+  Packaged Agent Skills generated from the Finage OpenAPI
+  (openapi/finage-openapi.yml, itself generated from Finage's docs database)
+  plus the conventions, errors, plans, and rate-limits artifacts in this repo.
+  Every operationId cited is verified verbatim in the spec. Finage publishes no
+  skills/AGENTS.md of its own (searched 2026-07-22).
+skills:
+  - file: finage-realtime-prices.md
+    name: Get real-time prices from Finage
+    api: openapi/finage-openapi.yml
+    operations: [stockLastQuote, stockLastTrade, forexLastQuote, cryptoLastQuoteApi, stockSnapshotApi, marketStatusApi]
+  - file: finage-historical-aggregates.md
+    name: Pull historical OHLCV aggregates from Finage
+    api: openapi/finage-openapi.yml
+    operations: [stockMarketAggregatesApi, forexAggregates, cryptoAggregatesApi, cfdIndexMarketAggregatesApi, cfdEtfMarketAggregatesApi, stockMarketPreviousClose]
+  - file: finage-company-fundamentals.md
+    name: Research company fundamentals with Finage
+    api: openapi/finage-openapi.yml
+    operations: [marketSearchApi, stockMarketDetailsApi, incomeStatements, balanceSheetStatements, cashFlowStatements, financialRatios, institutionalHoldersApi, earningsCalendar, dividendsCalendar, mostActiveUsStocksApi]

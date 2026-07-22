@@ -1,0 +1,322 @@
+generated: '2026-07-22'
+method: derived
+status: candidate
+source: openapi/finage-openapi.yml
+description: Finage publishes no official MCP server (searched the official MCP registry, npm, and the Finage docs/GitHub
+  org on 2026-07-22 — no hits). This is an API Evangelist candidate tool list derived one-tool-per-operation from
+  the Finage Market Data API OpenAPI; every tool binds to a real documented operation.
+server:
+  name: finage
+  transport: http
+tools:
+- name: stock_last_quote
+  description: You can get the last quote for a symbol with this endpoint.
+  source_operation: openapi/finage-openapi.yml#stockLastQuote
+- name: stock_last_trade
+  description: You can get the last trade for a symbol with this endpoint.
+  source_operation: openapi/finage-openapi.yml#stockLastTrade
+- name: stock_market_aggregates_api
+  description: With the Stock Market Aggregates endpoint, you can get the OHLCV bars of the stock market.
+  source_operation: openapi/finage-openapi.yml#stockMarketAggregatesApi
+- name: stock_market_previous_close
+  description: With the Stock Market Previous Close API, you can get the historiacal end of day data and also previous
+    day's last tick bar of the stock market.
+  source_operation: openapi/finage-openapi.yml#stockMarketPreviousClose
+- name: stock_snapshot_api
+  description: Stock Snapshot API will give you access to all U.S Market with one single API request. You can get
+    the latest trades, quotes or both of them with one request.
+  source_operation: openapi/finage-openapi.yml#stockSnapshotApi
+- name: forex_last_quote
+  description: You can get the last quote for a symbol with this endpoint.
+  source_operation: openapi/finage-openapi.yml#forexLastQuote
+- name: forex_last_trade
+  description: You can get the last trade price for a symbol with this endpoint.
+  source_operation: openapi/finage-openapi.yml#forexLastTrade
+- name: forex_aggregates
+  description: With the Forex Aggregates API, you can get the tick bars of the forex symbol.
+  source_operation: openapi/finage-openapi.yml#forexAggregates
+- name: forex_previous_close
+  description: With the Forex Previous Close API, you can get the previous day's last tick bar of the forex market.
+  source_operation: openapi/finage-openapi.yml#forexPreviousClose
+- name: forex_currency_converter_api
+  description: With this endpoint, you can convert the currencies with the real-time prices.
+  source_operation: openapi/finage-openapi.yml#forexCurrencyConverterApi
+- name: crypto_last_trade_api
+  description: You can get the prices in Real-Time with this endpoint.
+  source_operation: openapi/finage-openapi.yml#cryptoLastTradeApi
+- name: crypto_last_quote_api
+  description: You can get the last quote prices in Real-Time with this endpoint.
+  source_operation: openapi/finage-openapi.yml#cryptoLastQuoteApi
+- name: crypto_aggregates_api
+  description: With the Crypto Market Aggregates API, you can get the tick bars of the crypto market.
+  source_operation: openapi/finage-openapi.yml#cryptoAggregatesApi
+- name: crypto_previous_close_api
+  description: With the Crypto Previous Close endpoint, you can get the previous day's last tick bar of the crypto
+    market.
+  source_operation: openapi/finage-openapi.yml#cryptoPreviousCloseApi
+- name: crypto_converter_api
+  description: You can convert crypto by using this API. (eg. BTC to ETH, USD to DOGE, SHIB to BTC etc.)
+  source_operation: openapi/finage-openapi.yml#cryptoConverterApi
+- name: crypto_snapshot_api
+  description: Crypto Snapshot API will give you access to all available crypto with one single API request. You
+    can get the latest trades, quotes or both of them with one request.
+  source_operation: openapi/finage-openapi.yml#cryptoSnapshotApi
+- name: cfd_index_last_price
+  description: You can get the last quote for a symbol with this endpoint.
+  source_operation: openapi/finage-openapi.yml#cfdIndexLastPrice
+- name: cfd_index_market_aggregates_api
+  description: With the Index Market Aggregates API, you can get the tick bars of the index market.
+  source_operation: openapi/finage-openapi.yml#cfdIndexMarketAggregatesApi
+- name: cfd_index_previous_close_api
+  description: With the Index Previous Close API, you can get the previous day's last tick bar of the index market.
+  source_operation: openapi/finage-openapi.yml#cfdIndexPreviousCloseApi
+- name: cfd_etf_last_price
+  description: You can get the last ETFs price for a symbol with this endpoint.
+  source_operation: openapi/finage-openapi.yml#cfdEtfLastPrice
+- name: cfd_etf_market_aggregates_api
+  description: With the CFD ETF Market Aggregates API, you can get the tick bars of the ETF (Exchange Traded Fund)
+    market.
+  source_operation: openapi/finage-openapi.yml#cfdEtfMarketAggregatesApi
+- name: cfd_etf_previous_close_api
+  description: With the ETF Previous Close API, you can get the previous day's last tick bar of the ETF market.
+  source_operation: openapi/finage-openapi.yml#cfdEtfPreviousCloseApi
+- name: uk_market_last_price
+  description: Finage has more than 1200+ UK stock market data in delayed. You can get the last price for a symbol
+    with this endpoint.
+  source_operation: openapi/finage-openapi.yml#ukMarketLastPrice
+- name: uk_market_aggregates
+  description: With the UK Market Aggregates API, you can get the tick bars of the UK market.
+  source_operation: openapi/finage-openapi.yml#ukMarketAggregates
+- name: indian_market_last_price
+  description: Finage has more than 4900+ Indian market data in delayed. You can get the last price for a symbol
+    with this endpoint.
+  source_operation: openapi/finage-openapi.yml#indianMarketLastPrice
+- name: indian_market_aggregates
+  description: With the Indian Market Aggregates API, you can get the tick bars of the Indian market.
+  source_operation: openapi/finage-openapi.yml#indianMarketAggregates
+- name: canada_market_last_price
+  description: Finage has more than 2300+ Canada market data in real-time. You can get the last price for a symbol
+    with this endpoint.
+  source_operation: openapi/finage-openapi.yml#canadaMarketLastPrice
+- name: canada_market_aggregates
+  description: With the Canada Market Aggregates API, you can get the tick bars of the Canada market.
+  source_operation: openapi/finage-openapi.yml#canadaMarketAggregates
+- name: russian_market_last_price
+  description: Finage has more than 240+ Russian market data in real-time. You can get the last price for a symbol
+    with this endpoint.
+  source_operation: openapi/finage-openapi.yml#russianMarketLastPrice
+- name: russian_market_aggregates
+  description: With the Russian Market Aggregates API, you can get the tick bars of the Russian market.
+  source_operation: openapi/finage-openapi.yml#russianMarketAggregates
+- name: bond_last_rate
+  description: 'With this endpoint, you can get the latest rates (percentage) of the bonds.
+
+
+    Given table below includes name and the symbol of the bonds. You can use the symbol name in the brackets to
+    make API requests.
+
+
+    US 1M(DGS1MO)
+
+    US 3M(DGS3MO)
+
+    US 6M(DGS6MO)
+
+    US 1Y(DGS1)
+
+    US 2Y(DGS2)
+
+    US 5Y(DGS5)
+
+    US 7Y(DGS7)
+
+    US 10Y(DGS10)
+
+    US 20Y(DGS20)
+
+    US 30Y(DGS30)'
+  source_operation: openapi/finage-openapi.yml#bondLastRate
+- name: full_symbol_list_api
+  description: 'You can download and view our symbols and get more details from the symbols page. If you want to
+    get the all symbols with one endpoint, this endpoint will be useful in your product.
+
+
+    You can use our search endpoints to search one or more specific tickers.
+
+
+    Forex and Crypto pages include 500 symbols, US Market pages include 2500 symbols.'
+  source_operation: openapi/finage-openapi.yml#fullSymbolListApi
+- name: market_news_api
+  description: We provide you the latest market news via the Market News API.
+  source_operation: openapi/finage-openapi.yml#marketNewsApi
+- name: forex_news_api
+  description: By using our Forex News API, you can get the latest news about the currencies and the countries which
+    is using the selected currency.
+  source_operation: openapi/finage-openapi.yml#forexNewsApi
+- name: crypto_news_api
+  description: Finage's Crypto News API is the fastest crypto news API in the market. Our In-Memory Cache Engine
+    will cache the old news according to the request frequency. It will help you to build faster websites and applications.
+    Your customers will have a quick access without waiting for the news to load.
+  source_operation: openapi/finage-openapi.yml#cryptoNewsApi
+- name: market_status_api
+  description: Market Status API is an endpoint that shows the market, forex and crypto statuses. You can check
+    the market is closed, open or in extended hours with our Market Status API.
+  source_operation: openapi/finage-openapi.yml#marketStatusApi
+- name: economic_calendar
+  description: 'Our Economic Calendar API will show you the previous and the future events. Choose the from and
+    to dates to receive a certain range of events.
+
+
+    In the economic calendar actual, previous, change, changePercentage or estimate value could be null according
+    to the event or date of the event.'
+  source_operation: openapi/finage-openapi.yml#economicCalendar
+- name: earnings_calendar
+  description: 'Our Earnings Calendar API will show you the earnings release for companies.
+
+
+    In the earnings calendar eps, estimated_eps, revenue, or estimated_revenue value could be null according to
+    the event or date of the event.'
+  source_operation: openapi/finage-openapi.yml#earningsCalendar
+- name: ipo_calendar
+  description: 'Our IPO Calendar API will show you the recent and upcoming IPOs.
+
+
+    In the IPO calendar shares, price_range, market_cap, value could be null according to the event or date of the
+    event.'
+  source_operation: openapi/finage-openapi.yml#ipoCalendar
+- name: stock_split_calendar
+  description: Our Stock Split API will show you the splits data.
+  source_operation: openapi/finage-openapi.yml#stockSplitCalendar
+- name: historical_stock_split_calendar
+  description: Our Historical Stock Split API will show you the splits data for a specific company.
+  source_operation: openapi/finage-openapi.yml#historicalStockSplitCalendar
+- name: dividends_calendar
+  description: Our Dividends API will show you the dividend data for stocks going back 30 years.
+  source_operation: openapi/finage-openapi.yml#dividendsCalendar
+- name: historical_dividends_calendar
+  description: Our Historical Dividends API will show you the dividends data for a specific company.
+  source_operation: openapi/finage-openapi.yml#historicalDividendsCalendar
+- name: delisted_companies
+  description: Our Delisted Companies API will show you the companies delisted from exchanges.
+  source_operation: openapi/finage-openapi.yml#delistedCompanies
+- name: cash_flow_statements
+  description: Cash flow statements of the U.S. companies.
+  source_operation: openapi/finage-openapi.yml#cashFlowStatements
+- name: balance_sheet_statements
+  description: Balance sheet statements of the U.S. companies.
+  source_operation: openapi/finage-openapi.yml#balanceSheetStatements
+- name: income_statements
+  description: Income statements of the U.S. companies.
+  source_operation: openapi/finage-openapi.yml#incomeStatements
+- name: international_filings
+  description: 'Income statements for International companies.
+
+
+    UK Stock Market: L
+
+    Canadian Stock Market: TO
+
+    Russian Stock Market: ME
+
+    Indian Stock Market: NS
+
+    Hong Kong Stock Market: HK
+
+    Germany Stock Market: DE
+
+    European Stock Market: PA
+
+    Norway Stock Market: OL
+
+    Australian Stock Market: AX
+
+    Swiss Stock Market: SW'
+  source_operation: openapi/finage-openapi.yml#internationalFilings
+- name: stock_market_details_api
+  description: With the Stock Market Details API, you can get the stock market details.
+  source_operation: openapi/finage-openapi.yml#stockMarketDetailsApi
+- name: institutional_holders_api
+  description: The Institutional Holders API provides a more detailed view of the Institutional stock holdings.
+  source_operation: openapi/finage-openapi.yml#institutionalHoldersApi
+- name: mutual_fund_holders_api
+  description: The Mutual Fund Holders API provides a more detailed view of the Mutual Fund Holders of the selected
+    symbol.
+  source_operation: openapi/finage-openapi.yml#mutualFundHoldersApi
+- name: sec_rss_feed_api
+  description: The following SEC RSS feeds are a helpful online resource for staying current on the most recent
+    materials posted to the SEC website, including EDGAR filings.
+  source_operation: openapi/finage-openapi.yml#secRssFeedApi
+- name: technical_indicators
+  description: The Finage Technical Indicators API aims to provide dynamic results for a large number of technical
+    analysis calculations such as DEMA, EMA, SMA, WMA, RSI, TEMA, Williams, ADX and others.
+  source_operation: openapi/finage-openapi.yml#technicalIndicators
+- name: most_active_us_stocks_api
+  description: Most Active US Stocks API
+  source_operation: openapi/finage-openapi.yml#mostActiveUsStocksApi
+- name: top_us_stock_gainers_api
+  description: This API provides the top-gaining stocks today, including share price change and percentage.
+  source_operation: openapi/finage-openapi.yml#topUsStockGainersApi
+- name: top_us_stock_losers_api
+  description: This API provides the most losers stocks today, including share price change and percentage.
+  source_operation: openapi/finage-openapi.yml#topUsStockLosersApi
+- name: sector_performance_api
+  description: The Finage sector performance API provides specific sector performance daily basis including change
+    and percentage.
+  source_operation: openapi/finage-openapi.yml#sectorPerformanceApi
+- name: shares_float_api
+  description: You can get the shares float by using this endpoint.
+  source_operation: openapi/finage-openapi.yml#sharesFloatApi
+- name: market_search_api
+  description: You can search markets by stock name or company description.
+  source_operation: openapi/finage-openapi.yml#marketSearchApi
+- name: country_search
+  description: You can search the countries by country name or currency code.
+  source_operation: openapi/finage-openapi.yml#countrySearch
+- name: country_details
+  description: You can get the country details by country code.
+  source_operation: openapi/finage-openapi.yml#countryDetails
+- name: forex_currency_search
+  description: You can search the forex currencies by symbol name or currency details.
+  source_operation: openapi/finage-openapi.yml#forexCurrencySearch
+- name: forex_currency_details
+  description: You can get the currency details by currency name.
+  source_operation: openapi/finage-openapi.yml#forexCurrencyDetails
+- name: crypto_search_api
+  description: You can get the details of the crypto by its name or symbol.
+  source_operation: openapi/finage-openapi.yml#cryptoSearchApi
+- name: crypto_details_api
+  description: You can search crypto by crypto name, description or symbol.
+  source_operation: openapi/finage-openapi.yml#cryptoDetailsApi
+- name: crypto_market_cap_ranks_api
+  description: Crypto market cap rank endpoint will help you to get a list of crypto with name, thumbnail, market
+    cap, and all-time high price with one API request.
+  source_operation: openapi/finage-openapi.yml#cryptoMarketCapRanksApi
+- name: crypto_detailed_last_price_api
+  description: Finage has more than 5500+ cryptocurrency symbols in real-time.
+  source_operation: openapi/finage-openapi.yml#cryptoDetailedLastPriceApi
+- name: financial_ratios
+  description: Evaluate a company’s financial health with the Financial Ratios API. This API delivers in-depth insights
+    into profitability, liquidity, and efficiency ratios, allowing users to analyze operational and financial performance
+    across multiple key metrics.
+  source_operation: openapi/finage-openapi.yml#financialRatios
+- name: forex_technical_indicators
+  description: The Forex Technical Indicators API is designed to provide dynamic results for a wide range of technical
+    analysis calculations, including signals like confidence, as well as indicators such as SMA, RSI, MACD, Bollinger
+    Bands, and more.
+  source_operation: openapi/finage-openapi.yml#forexTechnicalIndicators
+- name: forex_snapshot_api
+  description: The Finage Forex Signal API is an AI-powered forecasting tool that delivers real-time trading signals
+    based on widely used technical indicators such as RSI, MACD, SMA, and Bollinger Bands. Each response includes
+    a recommended signal (buy, sell, or hold), a confidence score, and the full set of indicators used to generate
+    the result.
+  source_operation: openapi/finage-openapi.yml#forexSnapshotApi
+- name: forex_signal_api
+  description: The Finage Signal API is an forecasting tool that delivers real-time trading signals based on widely
+    used technical indicators such as RSI, MACD, SMA, and Bollinger Bands. Each response includes a recommended
+    signal (buy, sell, or hold), a confidence score, and the full set of indicators used to generate the result.
+  source_operation: openapi/finage-openapi.yml#forexSignalApi
+- name: us_stocks_signal_api
+  description: The Finage US Stocks Signal API is an forecasting tool that delivers real-time trading signals based
+    on widely used technical indicators such as RSI, MACD, SMA, and Bollinger Bands. Each response includes a recommended
+    signal (buy, sell, or hold), a confidence score, and the full set of indicators used to generate the result.
+  source_operation: openapi/finage-openapi.yml#usStocksSignalApi

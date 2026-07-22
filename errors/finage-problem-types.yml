@@ -1,0 +1,39 @@
+generated: '2026-07-22'
+method: derived
+format: proprietary-envelope
+source: live probes of api.finage.co.uk (2026-07-22) + https://finage.co.uk/docs/api + https://finage.co.uk/docs/websocket
+description: >-
+  Finage error catalog. The REST API returns a single-string JSON envelope
+  {"error": "<message>"} (not RFC 9457 problem+json). The WebSocket stream
+  returns numeric-status text messages. Entries below were observed live or are
+  documented verbatim in the docs; Finage publishes no consolidated error
+  reference page.
+envelope:
+  media_type: application/json
+  shape: '{"error": "<human-readable message>"}'
+problems:
+  - status: 406
+    title: GZip compression required
+    detail: Returned when the request lacks Accept-Encoding gzip; all responses are gzip-compressed.
+    example: '{"error":"GZip compression required"}'
+    observed: live probe of https://api.finage.co.uk/ (2026-07-22)
+  - status: 406
+    title: Missing API key
+    detail: Returned when the apikey query parameter is absent.
+    example: '{"error":"Please use your APIKey to make a request."}'
+    observed: live probe of https://api.finage.co.uk/last/stock/AAPL (2026-07-22)
+  - status: 406
+    title: No permission for endpoint
+    detail: Returned when the API key is invalid or the subscription plan does not include the requested market/endpoint.
+    example: '{"error":"You do not have permission to make a request to this endpoint."}'
+    observed: live probe with an invalid key (2026-07-22)
+websocket_errors:
+  - code: 401
+    message: invalid socket key
+    source: https://finage.co.uk/docs/websocket
+  - code: 401
+    message: use your socket key to connect
+    source: https://finage.co.uk/docs/websocket
+  - code: 401
+    message: please upgrade your package to access this market
+    source: https://finage.co.uk/docs/websocket

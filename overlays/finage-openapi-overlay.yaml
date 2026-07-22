@@ -1,0 +1,30 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Finage Market Data API
+  version: 1.0.0
+  x-apievangelist:
+    generated: '2026-07-22'
+    method: generated
+    source: openapi/finage-openapi.yml
+extends: openapi/finage-openapi.yml
+actions:
+  - target: $.info
+    description: Tag the spec with API Evangelist catalog identity and provenance.
+    update:
+      x-apievangelist-provider: finage
+      x-apievangelist-repo: https://github.com/api-evangelist/finage
+      x-apievangelist-generated-from: https://api.finage.co.uk/op/v1/endpoints/list
+  - target: $.info
+    description: >-
+      Record cross-cutting runtime semantics the spec cannot express: gzip is
+      mandatory (406 otherwise), the error envelope is a single {"error"}
+      string, and streaming access is a separate WebSocket product (see
+      asyncapi/finage-websocket-asyncapi.yml).
+    update:
+      x-conventions: conventions/finage-conventions.yml
+      x-error-catalog: errors/finage-problem-types.yml
+      x-streaming: asyncapi/finage-websocket-asyncapi.yml
+  - target: $.components.securitySchemes.apiKey
+    description: Point the auth scheme at the captured authentication profile.
+    update:
+      x-authentication-profile: authentication/finage-authentication.yml

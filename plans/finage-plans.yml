@@ -1,0 +1,238 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Finage
+providerId: finage
+generated: '2026-07-22'
+method: searched
+created: '2026-07-22'
+modified: '2026-07-22'
+tags:
+- Market Data
+- Finance
+description: 'Finage pricing captured from the live pricing page catalog (api.finage.co.uk/op/v1/package/getAllPackagesToDisplay,
+  the JSON finage.co.uk/pricing renders). Plans are grouped Basic vs Professional and split by product: REST API
+  packages (100,000 calls/month on Basic), WebSocket real-time feeds (unlimited calls), and website widgets. A free
+  API plan offers 1,000 requests/month; a 3-day free trial covers all markets.'
+sources:
+- https://finage.co.uk/pricing
+plans:
+- id: finage-api00
+  name: Free API Plan
+  group: Basic / Free/Widget
+  type: free
+  product: API
+  price_monthly_usd: 0
+  description: 1.000 Requests /month; HTTPS Encryption; Historical Data; Daily Change Included; Currency Conversion;
+    No Card Needed; Basic Support
+- id: finage-widget00
+  name: Free Widget Plan
+  group: Basic / Free/Widget
+  type: free
+  product: WIDGET
+  price_monthly_usd: 0
+  description: 1-Day Updates; Unlimited Requests; 1 Website Registrations; Encrypted Data; Ready to use; No coding
+    required; No Card Needed; Basic Support
+- id: finage-widget06
+  name: Widgets
+  group: Basic / Free/Widget
+  type: subscription
+  product: WIDGET
+  price_monthly_usd: 299
+  description: Real-Time Update; Unlimited Requests; US Stocks, Forex and Crypto; 5 Website Registrations; Encrypted
+    Data; Ready to use; No coding required; Integration support; Premium Support
+  free_trial: true
+- id: finage-api013
+  name: Basic Main Market
+  group: Basic / Stocks API
+  type: subscription
+  product: API
+  price_monthly_usd: 99
+  description: Real-time data; US Stocks, Forex and Crypto Bundle Package; Historical Data; Trades, Quotes and OHLCV;
+    100.000 API Calls/month; Basic Support
+  free_trial: true
+- id: finage-api014
+  name: Basic All Market
+  group: Basic / Stocks API
+  type: subscription
+  product: API
+  price_monthly_usd: 169
+  description: Real-time data; US Stocks, Forex, Crypto, ETFs and CFD Indices Bundle Package; Historical Data; Trades,
+    Quotes and OHLCV; 100.000 API Calls/month; Basic Support
+  free_trial: true
+- id: finage-api017
+  name: Basic Global Stocks RT
+  group: Basic / Stocks API
+  type: subscription
+  product: API
+  price_monthly_usd: 89
+  description: 'Real-Time data; 100.000 API Calls/month; Historical Data; Trades, Quotes and OHLCV; Basic Support;
+    Price present for one country: United Kingdom, Canada, Russia, Sweden, Denmark, Finland, Latvia, Lithuania,
+    Estonia'
+  free_trial: true
+- id: finage-api016
+  name: Basic Global Stocks DT
+  group: Basic / Stocks API
+  type: subscription
+  product: API
+  price_monthly_usd: 59
+  description: 'Delayed data; 100.000 API Calls/month; Historical Data; Trades, Quotes and OHLCV; Basic Support;
+    Price present for one country: Germany, Japan, Singapore, Hong Kong, China, Malaysia'
+  free_trial: true
+- id: finage-api012
+  name: Basic CFDs ETF API Package
+  group: Basic / CFDs
+  type: subscription
+  product: API
+  price_monthly_usd: 59
+  description: Real-time data; 2900+ Global ETF Market Coverage; 100.000 API Calls/month; Historical Data; Trades,
+    Quotes and OHLCV; Basic Support
+  free_trial: true
+- id: finage-api011
+  name: Basic CFD Indices API Package
+  group: Basic / CFDs
+  type: subscription
+  product: API
+  price_monthly_usd: 49
+  description: Real-time data; 1600+ Global Index Market Coverage; 100.000 API Calls/month; Historical Data; Trades,
+    Quotes and OHLCV; Basic Support
+  free_trial: true
+- id: finage-api041
+  name: Basic CFD ETFs & Indices API
+  group: Basic / CFDs
+  type: subscription
+  product: API
+  price_monthly_usd: 99
+  description: Real-time data; 2900+ Global ETF Market Coverage; 1600+ Global Index Market Coverage; 100.000 API
+    Calls/month; Historical Data; Trades, Quotes and OHLCV; Basic Support
+  free_trial: true
+- id: finage-websocket08
+  name: U.S. Stock Market Data
+  group: Professional / Stocks
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 999
+  description: Real-Time Data with Instant Updates; Advanced WebSocket Integration; Unlimited API Calls for Maximum
+    Flexibility; 19 Years of Historical Data Access; Extended Market Hours (4 AM - 8 PM ET); Trades, Quotes and
+    OHLCV; Private Server Option; Full US Equities Coverage; 24/7 Premium Support ; <a href="https://finage.co.uk/docs/symbols"
+    target="_blank">View U.S. Market Coverage</a>
+- id: finage-websocket011
+  name: Real-Time Global Stocks Data
+  group: Professional / Stocks
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 899
+  description: 'Real-Time Data Access for Global Markets; Advanced WebSocket Integration; Unlimited API Calls; 10+
+    Years Historical Data; Trades, Quotes and OHLCV; Dedicated Private Server Option; 24/7 Premium Support; Price
+    present for one country: United Kingdom, India, Russia, Sweden, Denmark, Finland, Latvia, Lithuania, Estonia,
+    Canada'
+  free_trial: true
+- id: finage-websocket012
+  name: Delayed Global Stocks Data
+  group: Professional / Stocks
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 599
+  description: 'Delayed Data Access for Global Markets; Advanced WebSocket Integration; Unlimited API Calls; 10+
+    Years Historical Data; Trades, Quotes and OHLCV; Dedicated Private Server Option; 24/7 Premium Support; Price
+    present for one country: Indonesia, Europe, Germany, Turkey, Brazil, Hong Kong, Malaysia, Spain, South Africa,
+    Norway, Saudi Arabia, Qatar, Thailand, Greece, Hungary, Chile, Venezuela, Japan, South Korea, Italy, New Zealand,
+    Israel, Taiwan, Mexico, Egypt, Czech Republic, Switzerland, China, Argentina'
+  free_trial: true
+- id: finage-websocket017
+  name: Real-Time Crypto Data Feed
+  group: Professional / Forex/Crypto
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 499
+  description: Real-Time Crypto Data; 4500+ Major Crypto Coverage; 8-Year Historical Data; Advanced WebSocket Integration;
+    Unlimited API calls; Trades, Quotes and OHLCV; Guaranteed 100% Price Accuracy; Premium Support; <a href="https://finage.co.uk/docs/symbols"
+    target="_blank">View Crypto Coverage</a>
+  free_trial: true
+- id: finage-websocket016
+  name: Real-Time Forex Data Feed
+  group: Professional / Forex/Crypto
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 599
+  description: Real-time Forex data; 1700+ Global Currency Coverage; 13-Year Historical Data; Advanced WebSocket
+    Integration; Unlimited API calls; Trades, Quotes and OHLCV; Guaranteed 100% Price Accuracy; Premium Support;
+    <a href="https://finage.co.uk/docs/symbols" target="_blank">View Forex Coverage</a>
+  free_trial: true
+- id: finage-websocket015
+  name: Forex & Crypto Data Bundle
+  group: Professional / Forex/Crypto
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 949
+  description: Real-Time Data for Forex and Crypto; 1700+ Global Currency Coverage; 4500+ Major Crypto Coverage;
+    13-Year Forex Historical Data; 8-Year Crypto Historical Data; Advanced WebSocket Integration; Unlimited API
+    calls; Trades, Quotes and OHLCV; Guaranteed 100% Price Accuracy; Premium Support; Bundle and Save 13.6%!
+  free_trial: true
+- id: finage-api08
+  name: Financial Statements
+  group: Professional / CFDs/FS
+  type: subscription
+  product: API
+  price_monthly_usd: 299
+  description: Real-Time Data; 120+ Countries Coverage; 30 Years of Historical Data; Detailed Company Fundamentals;
+    Quarterly and Annual Reports; Financial Ratios and Valuations; Sector Analysis Tools; Customizable Data Feeds;
+    Unlimited API Calls; HTTPS Encryption; Premium Support
+- id: finage-websocket09
+  name: Global CFD Indices
+  group: Professional / CFDs/FS
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 499
+  description: Real-Time Index Data; 1600+ Global Index Market Coverage; Advanced WebSocket Integration; Unlimited
+    API Calls; Historical Data; Trades, Quotes and OHLCV; Premium Support
+  free_trial: true
+- id: finage-websocket010
+  name: Global CFD ETFs
+  group: Professional / CFDs/FS
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 599
+  description: Real-Time ETFs Data; 2900+ Global Index Market Coverage; Advanced WebSocket Integration; Unlimited
+    API Calls; Historical Data; Trades, Quotes and OHLCV; Premium Support
+  free_trial: true
+- id: finage-websocket019
+  name: Indices & ETFs Bundle
+  group: Professional / CFDs/FS
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 999
+  description: Real-Time Data for Index and ETFs; Global 2900+ ETFs Coverage; Global 1600+ Index Coverage; Advanced
+    WebSocket Integration; Unlimited API Calls; Historical Data; Trades, Quotes and OHLCV; Premium Support; Bundle
+    and Save 10%!
+  free_trial: true
+- id: finage-websocket018
+  name: Main Market Feeds Bundle
+  group: Professional / Bundle
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 1749
+  description: Real-Time Data Access; Advanced WebSocket Integration; US Stocks, Forex, and Crypto Coverage; Extensive
+    Historical Data; Unlimited API calls; Private Server Option; SLA Option; Trades, Quotes and OHLCV; Guaranteed
+    100% Price Accuracy; 24/7 Priority Support; Bundle and Save 17.6%!
+  free_trial: true
+- id: finage-api020
+  name: All Market Feeds API Bundle
+  group: Professional / Bundle
+  type: subscription
+  product: API
+  price_monthly_usd: 1949
+  description: Real-Time Data Access; US Stocks, Forex, Crypto, ETF, CFD Indices, Fundamentals, and Widgets Coverage;
+    Extensive Historical Data; Unlimited API calls; Private Server Option; SLA Option; Trades, Quotes and OHLCV;
+    Guaranteed 100% Price Accuracy; 24/7 Priority Support; Bundle and Save 18.9%!
+  free_trial: true
+- id: finage-websocket07
+  name: All Market Feeds Bundle
+  group: Professional / Bundle
+  type: subscription
+  product: WEBSOCKET
+  price_monthly_usd: 2899
+  description: Real-Time Data Access; Advanced WebSocket Integration; US Stocks, Forex, Crypto, ETF, CFD Indices,
+    Fundamentals, and Widgets Coverage; Extensive Historical Data; Unlimited API calls; Private Server Option; SLA
+    Option; Trades, Quotes and OHLCV; Guaranteed 100% Price Accuracy; 24/7 Priority Support; Bundle and Save 21.5%!
+  free_trial: true

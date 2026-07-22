@@ -1,0 +1,39 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/finage-openapi.yml + live probes of api.finage.co.uk + https://finage.co.uk/docs/api
+description: >-
+  Cross-cutting standards posture for the Finage Market Data API, derived from
+  the generated OpenAPI, the docs, and live probes. Finage publishes no formal
+  compliance/certification program page (no trust center, no SOC 2 / ISO 27001
+  claims found on the site).
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: No OAuth2 — authentication is a single apikey query parameter on every request.
+  - id: oidc
+    conforms: false
+    evidence: No openid-configuration discovery document (probed finage.co.uk and api.finage.co.uk).
+  - id: api-keys
+    conforms: true
+    evidence: apiKey securityScheme (in query, name apikey) applied to all 72 operations.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: 'Errors use a proprietary single-string envelope {"error": "..."} with application/json, not application/problem+json.'
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: No /.well-known/security.txt on either host (see well-known/finage-well-known.yml).
+  - id: tls-1-3
+    conforms: true
+    evidence: finage.co.uk negotiates TLSv1.3 (see security/finage-domain-security.yml).
+  - id: pagination
+    conforms: partial
+    evidence: Only list endpoints paginate (e.g. /symbol-list/{market} takes a page parameter); most endpoints return bounded result sets with a limit parameter.
+  - id: idempotency-keys
+    conforms: false
+    evidence: No idempotency-key contract documented; the API is read-only GET so requests are naturally idempotent.
+  - id: websocket-streaming
+    conforms: true
+    evidence: Real-time streaming over wss://{subdomain}.finage.ws:{port} with token auth (see asyncapi/finage-websocket-asyncapi.yml).
+  - id: http-compression
+    conforms: true
+    evidence: gzip is mandatory — requests without Accept-Encoding gzip receive 406 "GZip compression required" (live probe 2026-07-22).

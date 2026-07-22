@@ -1,34 +1,151 @@
 aid: finage
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: true
+  try_now: false
+  public: false
+  label: Freemium (3-day free trial) · Self-serve signup
+  confidence: high
+  source:
+    - plans
+    - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/finage.png
 name: Finage
-description: "Finage is a stock, currency, cryptocurrency, indices, and ETFs real-time & historical data provider"
+description: >-
+  Finage is a London-based real-time and historical market data provider
+  covering US and global stocks, forex, cryptocurrencies, CFD indices, ETFs,
+  bonds, and company fundamentals. Data is delivered through a read-only REST
+  API (api.finage.co.uk, API-key auth, 72 documented endpoints spanning
+  quotes, trades, OHLCV aggregates, snapshots, financial statements,
+  calendars, news, and technical indicators), dedicated per-customer WebSocket
+  streams on finage.ws for real-time trades and quotes, and embeddable website
+  widgets served from cdn.finage.co.uk. Plans range from a free 1,000
+  request/month tier through Basic API packages to Professional unlimited
+  WebSocket feeds, with a 3-day free trial across all markets.
 url: https://finage.co.uk
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-07-22'
 x-source: public-apis/public-apis
 x-category: "Finance"
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
 tags:
   - Finance
+  - Market Data
+  - Stocks
+  - Forex
+  - Cryptocurrency
+  - ETFs
+  - Indices
+  - Fundamentals
+  - Real-Time Data
   - Public APIs
 apis:
-  - name: Finage
-    description: "Finage is a stock, currency, cryptocurrency, indices, and ETFs real-time & historical data provider"
-    humanURL: https://finage.co.uk
-    baseURL: https://finage.co.uk
+  - name: Finage Market Data API
+    description: >-
+      Read-only REST API for real-time and historical market data: last
+      quotes/trades, OHLCV aggregates, and snapshots for US and global stocks,
+      forex, crypto, CFD indices and ETFs, plus fundamentals (financial
+      statements, ratios, holders), economic/earnings/dividend calendars,
+      market news, technical indicators, and symbol search. Authenticated with
+      an apikey query parameter; responses are gzip-compressed JSON.
+    humanURL: https://finage.co.uk/docs/api
+    baseURL: https://api.finage.co.uk
     tags:
       - Finance
+      - Market Data
     properties:
       - type: Documentation
-        url: https://finage.co.uk
+        url: https://finage.co.uk/docs/api
+      - type: APIReference
+        url: https://finage.co.uk/docs/api
+      - type: OpenAPI
+        url: openapi/finage-openapi.yml
+      - type: Overlay
+        url: overlays/finage-openapi-overlay.yaml
+      - type: MCPServer
+        url: mcp/finage-mcp.yml
+  - name: Finage WebSocket Market Data Stream
+    description: >-
+      Real-time streaming trades and quotes for US stocks, global stocks,
+      forex, crypto, CFD indices, and ETFs over per-customer WebSocket URLs
+      (assigned subdomain and port on finage.ws, socket-key token
+      authentication, shown in the dashboard).
+    humanURL: https://finage.co.uk/docs/websocket
+    baseURL: https://api.finage.co.uk
+    tags:
+      - Finance
+      - Streaming
+    properties:
+      - type: Documentation
+        url: https://finage.co.uk/docs/websocket
+      - type: AsyncAPI
+        url: asyncapi/finage-websocket-asyncapi.yml
 common:
+  - type: Authentication
+    url: authentication/finage-authentication.yml
   - type: DomainSecurity
     url: security/finage-domain-security.yml
   - type: Website
     url: https://finage.co.uk
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
+  - type: Packages
+    url: packages/finage-packages.yml
+  - type: WellKnown
+    url: well-known/finage-well-known.yml
+  - type: LLMsTxt
+    url: llms/finage-llms.txt
+  - type: Conformance
+    url: conformance/finage-conformance.yml
+  - type: ErrorCatalog
+    url: errors/finage-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/finage-lifecycle.yml
+  - type: Conventions
+    url: conventions/finage-conventions.yml
+  - type: Components
+    url: components/finage-components.yml
+  - type: DataModel
+    url: data-model/finage-data-model.yml
+  - type: Plans
+    url: plans/finage-plans.yml
+  - type: RateLimits
+    url: rate-limits/finage-rate-limits.yml
+  - type: AsyncAPI
+    url: asyncapi/finage-websocket-asyncapi.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: Portal
+    url: https://moon.finage.co.uk
+  - type: SignUp
+    url: https://moon.finage.co.uk/register
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+  - type: Pricing
+    url: https://finage.co.uk/pricing
+  - type: Blog
+    url: https://finage.co.uk/blog
+  - type: Support
+    url: https://finage.co.uk/company/frequently-asked-questions
+  - type: GitHubOrganization
+    url: https://github.com/FinageLTD
+  - type: TermsOfService
+    url: https://finage.co.uk/company/privacy-policy/terms-of-use
+  - type: PrivacyPolicy
+    url: https://finage.co.uk/company/privacy-policy/privacy-policy
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/finageltd/
+  - type: Twitter
+    url: https://twitter.com/finageltd
+  - type: YouTube
+    url: https://www.youtube.com/channel/UCRUuqo17XKUVxPODKLsRvmA
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

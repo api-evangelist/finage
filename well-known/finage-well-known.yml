@@ -1,0 +1,36 @@
+generated: '2026-07-22'
+method: probed
+source: live HTTP probes of finage.co.uk and api.finage.co.uk
+description: >-
+  Probe record for Finage's /.well-known/ discovery surface. No real well-known
+  documents were found: finage.co.uk is an Angular SPA that returns a 200 HTML
+  shell (soft-404) for every unknown path, and api.finage.co.uk returns a 406
+  JSON error ("GZip compression required" / API-key errors) for non-API paths.
+  Recorded so future rounds do not re-conclude differently without new
+  evidence.
+hosts:
+  - host: https://finage.co.uk
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: HTML SPA shell, not a security.txt (soft-404).
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: HTML SPA shell, not JSON (soft-404).
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: HTML SPA shell, not JSON (soft-404).
+      - path: /.well-known/api-catalog
+        status: 200
+        note: HTML SPA shell (soft-404).
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        note: HTML SPA shell, not JSON (soft-404).
+  - host: https://api.finage.co.uk
+    documents:
+      - path: /.well-known/security.txt
+        status: 406
+        note: API error envelope; no security.txt.
+      - path: /.well-known/openid-configuration
+        status: 406
+        note: API error envelope; no OIDC discovery document.

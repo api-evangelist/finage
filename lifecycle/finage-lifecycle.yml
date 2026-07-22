@@ -1,0 +1,26 @@
+generated: '2026-07-22'
+method: searched
+source: https://finage.co.uk/pricing + https://finage.co.uk/company/frequently-asked-questions + live probes
+description: >-
+  Lifecycle and operational posture for the Finage API. Finage publishes no
+  public status page (status.finage.co.uk does not resolve; no status link on
+  the site), no API versioning scheme, and no deprecation policy. An SLA is
+  offered as an option on the Professional bundle plans ("SLA Option" on the
+  Main Market / All Market Feeds bundles), and the FAQ carries a "Data
+  Accuracy, Latency & Uptime" section. Recorded absences are probe results,
+  not gaps in this file.
+versioning:
+  scheme: none
+  note: Public market-data endpoints carry no version segment; no versioning policy published.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No deprecation policy or RFC 8594 Sunset header support documented.
+sla:
+  url: https://finage.co.uk/pricing
+  note: SLA offered as an option on Professional bundle plans (Main Market Feeds Bundle, All Market Feeds Bundle); no public uptime target published.
+status_page: null
+status_page_note: No public status page found (status.finage.co.uk does not resolve; probed 2026-07-22).
+trial:
+  free_trial: 3-day free trial for all markets (per FAQ), plus a permanent free API plan (1,000 requests/month).
+deprecated_operations: []

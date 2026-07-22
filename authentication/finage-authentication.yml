@@ -1,0 +1,17 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/finage-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: apiKey
+  type: apiKey
+  in: query
+  parameter: apikey
+  description: Finage API key, passed as the apikey query parameter on every request. Get one
+    at https://moon.finage.co.uk/register.
+  sources:
+  - openapi/finage-openapi.yml

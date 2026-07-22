@@ -1,0 +1,42 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/finage-openapi.yml (response shapes from Finage's docs database)
+docs: https://finage.co.uk/docs/api
+description: >-
+  Entity graph of the Finage Market Data API, derived from the response shapes
+  in the generated OpenAPI. Finage is a read-only market data domain: every
+  entity hangs off a market Symbol, and the API projects that symbol into
+  quotes, trades, OHLCV aggregates, snapshots, reference details, fundamentals,
+  and calendar/news feeds. There are no client-writable resources or id-prefix
+  schemes.
+notation: >-
+  relationships use has_one / has_many / belongs_to with the identifying field
+  name; direction is from the entity that owns the reference.
+entities:
+  - {name: Symbol, domain: reference, description: A tradable instrument identifier (stock ticker, forex pair, crypto pair, index, ETF, bond series); namespaced by market and country for global stocks.}
+  - {name: Quote, domain: prices, description: 'Last bid/ask for a symbol (ask, bid, asize, bsize, timestamp).'}
+  - {name: Trade, domain: prices, description: 'Last executed trade for a symbol (price, size/quantity, timestamp).'}
+  - {name: AggregateBar, domain: prices, description: 'OHLCV bar (o, h, l, c, v, t) returned by the /agg time-range endpoints.'}
+  - {name: Snapshot, domain: prices, description: Bulk current-market view combining quotes/trades across many symbols (stock, forex, crypto snapshots).}
+  - {name: CompanyDetail, domain: reference, description: Company/instrument profile returned by the detail endpoints (stock, currency, cryptocurrency, country).}
+  - {name: FinancialStatement, domain: fundamentals, description: Income statement, balance sheet, or cash-flow statement rows for a company (quarterly or annual).}
+  - {name: FinancialRatios, domain: fundamentals, description: Valuation and performance ratios for a company.}
+  - {name: Holder, domain: fundamentals, description: Institutional or mutual-fund holder position in a company.}
+  - {name: CalendarEvent, domain: fundamentals, description: Economic, earnings, IPO, dividend, or stock-split calendar entry.}
+  - {name: NewsItem, domain: news, description: Market, forex, or crypto news article tied to symbols/markets.}
+  - {name: TechnicalIndicator, domain: analytics, description: Computed indicator series (stocks and forex) over aggregate bars.}
+  - {name: MarketStatus, domain: reference, description: Open/closed state of covered markets.}
+relationships:
+  - {from: Quote, rel: belongs_to, to: Symbol, via: symbol}
+  - {from: Trade, rel: belongs_to, to: Symbol, via: symbol}
+  - {from: AggregateBar, rel: belongs_to, to: Symbol, via: symbol}
+  - {from: Snapshot, rel: has_many, to: Quote, via: quotes}
+  - {from: Snapshot, rel: has_many, to: Trade, via: trades}
+  - {from: CompanyDetail, rel: belongs_to, to: Symbol, via: symbol}
+  - {from: FinancialStatement, rel: belongs_to, to: CompanyDetail, via: symbol}
+  - {from: FinancialRatios, rel: belongs_to, to: CompanyDetail, via: symbol}
+  - {from: Holder, rel: belongs_to, to: CompanyDetail, via: symbol}
+  - {from: CalendarEvent, rel: belongs_to, to: Symbol, via: symbol}
+  - {from: NewsItem, rel: has_many, to: Symbol, via: symbols}
+  - {from: TechnicalIndicator, rel: belongs_to, to: Symbol, via: symbol}
+  - {from: TechnicalIndicator, rel: has_many, to: AggregateBar, via: series}

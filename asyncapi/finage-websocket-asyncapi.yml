@@ -1,0 +1,241 @@
+asyncapi: 3.0.0
+info:
+  title: Finage WebSocket Market Data Stream
+  version: 1.0.0
+  description: >-
+    Finage streams real-time market prices (US stocks, global stocks, forex,
+    crypto, CFD indices, and ETFs) over WebSocket. Each customer is assigned a
+    dedicated WebSocket URL (subdomain + port) shown in the Finage dashboard;
+    connections authenticate with a token (socket key) query parameter. After
+    connecting, the server sends two status messages ("authorizing", then
+    "connected to the adapter") before streaming price updates. This AsyncAPI
+    was derived by API Evangelist from Finage's WebSocket documentation
+    (https://finage.co.uk/docs/websocket) and the published message-type models
+    (https://api.finage.co.uk/op/v1/wstype/list); all message payload examples
+    are verbatim from that source.
+  contact:
+    name: Finage Support
+    email: support@finage.co.uk
+    url: https://finage.co.uk
+  externalDocs:
+    description: Finage WebSocket documentation
+    url: https://finage.co.uk/docs/websocket
+  x-apievangelist:
+    generated: '2026-07-22'
+    method: derived
+    source: https://finage.co.uk/docs/websocket + https://api.finage.co.uk/op/v1/wstype/list
+servers:
+  production:
+    host: '{subdomain}.finage.ws:{port}'
+    protocol: wss
+    description: >-
+      Your assigned WebSocket URL (subdomain and port) is shown in the Finage
+      dashboard under the WebSocket section. Streams are divided into
+      subdomains per market section for stability. Authenticate by appending
+      ?token={socket key}. Documented error messages: "401 - invalid socket
+      key", "401 - use your socket key to connect", "401 - please upgrade your
+      package to access this market".
+    variables:
+      subdomain:
+        description: Stream subdomain assigned to your account (shown in dashboard).
+      port:
+        description: Port of your assigned stream server (shown in dashboard).
+channels:
+  prices:
+    address: /
+    description: >-
+      Single streaming channel. On connect the server sends ConnectionStatus
+      messages, then real-time price update messages whose shape depends on the
+      subscribed market (Finage message-type models Type2-Type10).
+    messages:
+      connectionStatus:
+        $ref: '#/components/messages/connectionStatus'
+      forexQuoteWithChange:
+        $ref: '#/components/messages/forexQuoteWithChange'
+      cryptoTradeWithChange:
+        $ref: '#/components/messages/cryptoTradeWithChange'
+      stockQuote:
+        $ref: '#/components/messages/stockQuote'
+      cryptoTrade:
+        $ref: '#/components/messages/cryptoTrade'
+      forexQuote:
+        $ref: '#/components/messages/forexQuote'
+      stockQuoteWithChange:
+        $ref: '#/components/messages/stockQuoteWithChange'
+      etfQuoteWithChange:
+        $ref: '#/components/messages/etfQuoteWithChange'
+operations:
+  receivePrices:
+    action: receive
+    channel:
+      $ref: '#/channels/prices'
+    summary: Receive real-time price updates for subscribed symbols.
+components:
+  messages:
+    connectionStatus:
+      name: ConnectionStatus
+      summary: Connection lifecycle status messages sent after connecting.
+      payload:
+        type: object
+        properties:
+          status_code:
+            type: integer
+          message:
+            type: string
+          id:
+            type: string
+      examples:
+        - name: authorizing
+          payload:
+            status_code: 200
+            message: authorizing
+            id: e0fb1b68-1905-48e3-9fd2-d482bf5e1f0a
+        - name: connected
+          payload:
+            status_code: 200
+            message: connected to the adapter
+            id: e0fb1b68-1905-48e3-9fd2-d482bf5e1f0a
+    forexQuoteWithChange:
+      name: Type2Model
+      summary: Forex quote with daily change (Finage Type2Model).
+      payload:
+        type: object
+        properties:
+          s: {type: string, description: Symbol}
+          a: {type: number, description: Ask price}
+          b: {type: number, description: Bid price}
+          dd: {type: string, description: Daily difference}
+          dc: {type: string, description: Daily change percent}
+          ppms: {type: boolean, description: Price per millisecond flag}
+          t: {type: integer, description: Timestamp (ms)}
+      examples:
+        - payload:
+            s: ZAR/EUR
+            a: 0.05103271
+            b: 0.05100465
+            dd: '0.0002'
+            dc: '0.4016'
+            ppms: false
+            t: 1680703141685
+    cryptoTradeWithChange:
+      name: Type3Model
+      summary: Crypto trade with daily change (Finage Type3Model).
+      payload:
+        type: object
+        properties:
+          s: {type: string, description: Symbol}
+          p: {type: string, description: Price}
+          q: {type: string, description: Quantity}
+          dc: {type: string, description: Daily change percent}
+          dd: {type: string, description: Daily difference}
+          t: {type: integer, description: Timestamp (ms)}
+      examples:
+        - payload:
+            s: DOGEUSD
+            p: '0.09649316'
+            q: '22434.12483106'
+            dc: '1.4147'
+            dd: '0.0014'
+            t: 1680704192819
+    stockQuote:
+      name: Type4Model
+      summary: US stock quote (Finage Type4Model).
+      payload:
+        type: object
+        properties:
+          s: {type: string, description: Symbol}
+          ap: {type: number, description: Ask price}
+          bp: {type: number, description: Bid price}
+          as: {type: integer, description: Ask size}
+          bs: {type: integer, description: Bid size}
+          t: {type: integer, description: Timestamp (ms)}
+      examples:
+        - payload:
+            s: TSLA
+            ap: 189.3
+            bp: 189.27
+            as: 3
+            bs: 1
+            t: 1714403004431
+    cryptoTrade:
+      name: Type5Model
+      summary: Crypto trade (Finage Type5Model).
+      payload:
+        type: object
+        properties:
+          s: {type: string, description: Symbol}
+          p: {type: string, description: Price}
+          q: {type: string, description: Quantity}
+          t: {type: integer, description: Timestamp (ms)}
+      examples:
+        - payload:
+            s: HBARUSD
+            p: '0.06648169'
+            q: '340082.47302549'
+            t: 1680704234267
+    forexQuote:
+      name: Type6Model
+      summary: Forex quote (Finage Type6Model).
+      payload:
+        type: object
+        properties:
+          s: {type: string, description: Symbol}
+          a: {type: number, description: Ask price}
+          b: {type: number, description: Bid price}
+          t: {type: integer, description: Timestamp (ms)}
+      examples:
+        - payload:
+            s: EUR/USD
+            a: 1.09229
+            b: 1.09227
+            t: 1680705338000
+    stockQuoteWithChange:
+      name: Type8Model
+      summary: Stock quote with daily change (Finage Type8Model).
+      payload:
+        type: object
+        properties:
+          s: {type: string, description: Symbol}
+          a: {type: number, description: Ask price}
+          as: {type: integer, description: Ask size}
+          b: {type: number, description: Bid price}
+          bs: {type: integer, description: Bid size}
+          dc: {type: number, description: Daily change percent}
+          dd: {type: number, description: Daily difference}
+          t: {type: integer, description: Timestamp (ms)}
+      examples:
+        - payload:
+            s: GOOGL
+            a: 167.989804
+            as: 13
+            b: 167.970446
+            bs: 4
+            dc: -1.9556
+            dd: -3.2851
+            t: 1714403502895
+    etfQuoteWithChange:
+      name: Type10Model
+      summary: ETF quote with daily change (Finage Type10Model).
+      payload:
+        type: object
+        properties:
+          s: {type: string, description: Symbol}
+          a: {type: number, description: Ask price}
+          as: {type: integer, description: Ask size}
+          b: {type: number, description: Bid price}
+          bs: {type: integer, description: Bid size}
+          dc: {type: number, description: Daily change percent}
+          dd: {type: number, description: Daily difference}
+          ppms: {type: boolean, description: Price per millisecond flag}
+          t: {type: integer, description: Timestamp (ms)}
+      examples:
+        - payload:
+            s: QQQ
+            a: 458.610865
+            as: 1
+            b: 458.549806
+            bs: 1
+            dc: -0.4196
+            dd: -1.924
+            ppms: true
+            t: 1725449608827

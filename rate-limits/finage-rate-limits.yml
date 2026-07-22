@@ -1,0 +1,38 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Finage
+providerId: finage
+generated: '2026-07-22'
+method: searched
+created: '2026-07-22'
+modified: '2026-07-22'
+tags:
+  - Rate Limiting
+  - Market Data
+description: >-
+  Finage limits usage by plan-level monthly request quotas rather than
+  published per-second rate limits: the free API plan includes 1,000 requests
+  per month, Basic API packages include 100,000 API calls per month, and
+  Professional/WebSocket plans advertise unlimited API calls. No per-minute /
+  per-second throttle or rate-limit response headers are documented.
+sources:
+  - https://finage.co.uk/pricing
+limits:
+  - name: Free API Plan quota
+    scope: account
+    metric: requests_per_month
+    limit: 1000
+    timeFrame: month
+  - name: Basic API package quota
+    scope: account
+    metric: requests_per_month
+    limit: 100000
+    timeFrame: month
+    note: Applies to Basic Main Market, Basic All Market, Basic Global Stocks, and Basic CFD packages.
+  - name: Professional / WebSocket plans
+    scope: account
+    metric: requests_per_month
+    limit: -1
+    timeFrame: month
+    note: Advertised as unlimited API calls.

@@ -1,0 +1,45 @@
+generated: '2026-07-22'
+method: searched
+source: npm, PyPI, Maven Central, NuGet, RubyGems, Packagist, crates.io registries + github.com/FinageLTD
+description: >-
+  Finage does not publish first-party SDK client libraries on the public
+  package registries — the official GitHub org (github.com/FinageLTD) contains
+  only integration examples (Python WebSocket connection, TradingView chart
+  integration, widget examples). The registry packages below are
+  community-maintained wrappers; none is first-party. Searched: npm, PyPI,
+  Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist, crates.io.
+packages:
+  - language: javascript
+    registry: npm
+    name: finage
+    url: https://www.npmjs.com/package/finage
+    install: npm install finage
+    official: false
+    note: Community NodeJS wrapper by Daniel Famiyeh (github.com/danielfamiyeh/node-finage).
+  - language: python
+    registry: pypi
+    name: finage
+    url: https://pypi.org/project/finage/
+    install: pip install finage
+    official: false
+    note: Community Python wrapper by Alex Thompson (github.com/athompson1991/finage).
+  - language: javascript
+    registry: npm
+    name: '@pipedream/finage'
+    url: https://www.npmjs.com/package/@pipedream/finage
+    install: npm install @pipedream/finage
+    official: false
+    note: Pipedream integration components for the Finage API.
+official_examples:
+  - name: python-websocket-connection
+    url: https://github.com/FinageLTD/python-websocket-connection
+    description: Connect to the Finage WebSocket market server with Python.
+  - name: realtime-data-on-tradingview-chart
+    url: https://github.com/FinageLTD/realtime-data-on-tradingview-chart
+    description: Finage real-time and historical data on TradingView Lightweight chart.
+  - name: python-console-based-prices
+    url: https://github.com/FinageLTD/python-console-based-prices
+    description: Python console based real-time cryptocurrency prices.
+  - name: finage-example-widget
+    url: https://github.com/FinageLTD/finage-example-widget
+    description: An example usage of Finage's currency API.

@@ -1,0 +1,68 @@
+generated: '2026-07-22'
+method: derived
+source: https://finage.co.uk/docs/api (docs database at api.finage.co.uk/op/v1/endpoints/list) + live probes + openapi/finage-openapi.yml
+description: >-
+  Cross-cutting request/response semantics of the Finage Market Data API — the
+  runtime behaviors that apply to every endpoint. Derived from the docs
+  database the Finage documentation renders, the generated OpenAPI, and live
+  probes of the API.
+base_url: https://api.finage.co.uk
+api_style: REST over HTTPS, read-only GET endpoints, JSON responses (gzip-compressed)
+
+authentication:
+  scheme: API key as an apikey query parameter on every request
+  signup: https://moon.finage.co.uk/register
+  websocket: Separate socket key (token query parameter) per assigned wss URL, shown in the dashboard
+  detail: authentication/finage-authentication.yml
+
+compression:
+  required: true
+  detail: >-
+    Responses are gzip-compressed; requests without Accept-Encoding gzip
+    receive HTTP 406 {"error":"GZip compression required"} (observed live
+    2026-07-22).
+
+idempotency:
+  supported: false
+  note: >-
+    No idempotency-key contract is documented. The public API surface is
+    read-only GET, so requests are naturally idempotent, but there is no
+    write-path idempotency mechanism to capture.
+
+pagination:
+  style: page-number on list endpoints only
+  request_params:
+    page: 'Page number (e.g. /symbol-list/{market}?page=1)'
+    limit: Result count cap on several fundamentals endpoints (e.g. statements limit=10)
+  note: Most endpoints return bounded snapshots or date-range series rather than paginated collections.
+
+time_and_dates:
+  timestamps: Unix epoch milliseconds in responses (t / timestamp fields)
+  date_params: Date-range path/query parameters use YYYY-MM-DD (e.g. /agg/stock/AAPL/1/day/2025-02-05/2025-02-07)
+
+symbology:
+  path_symbols: Symbols are path parameters (AAPL, GBPUSD, BTCUSD); global stocks are namespaced by country (/agg/stock/global/{country}/{symbol})
+  reference: https://finage.co.uk/docs/symbols
+
+error_envelope:
+  shape: '{"error": "<message>"}'
+  detail: errors/finage-problem-types.yml
+
+versioning:
+  scheme: none
+  note: No version segment in public API paths and no published API versioning/deprecation policy (the internal docs/ops API uses /op/v1/, but the market-data surface is unversioned).
+
+rate_limit_signaling:
+  documented_headers: none found
+  note: >-
+    Quotas are plan-based (1,000 requests/month free; 100,000 calls/month on
+    Basic packages; unlimited on Professional/WebSocket plans) — see
+    rate-limits/finage-rate-limits.yml and plans/finage-plans.yml. No
+    per-second limit or rate-limit response headers are documented.
+
+cross_links:
+  errors: errors/finage-problem-types.yml
+  authentication: authentication/finage-authentication.yml
+  rate_limits: rate-limits/finage-rate-limits.yml
+  plans: plans/finage-plans.yml
+  streaming: asyncapi/finage-websocket-asyncapi.yml
