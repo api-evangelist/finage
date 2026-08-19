@@ -26,7 +26,7 @@ description: >-
   request/month tier through Basic API packages to Professional unlimited
   WebSocket feeds, with a 3-day free trial across all markets.
 url: https://finage.co.uk
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-05-28'
 modified: '2026-07-22'
 x-source: public-apis/public-apis
