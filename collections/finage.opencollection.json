@@ -1,0 +1,2181 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finage Market Data API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "US Stocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Stock Last Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/stock/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol Name (eg: AAPL)"
+              }
+            ]
+          },
+          "docs": "You can get the last quote for a symbol with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Stock Last Trade",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/trade/stock/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol Name"
+              }
+            ]
+          },
+          "docs": "You can get the last trade for a symbol with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Stock Market Aggregates API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/stock/:symbol/:multiply/:time/:from/:to",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol Name"
+              },
+              {
+                "name": "multiply",
+                "value": "",
+                "type": "path",
+                "description": "Time Multiplier"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "path",
+                "description": "Size of the time. [minute, hour, day, week, month, quarter, year]"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End date"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the results. Default is 100, maximum allowed limit is 50000. Please set a limit if you are using the API in the production."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "You can sort the results by timestamp. asc will return ascending results oldest to newest, desc will return descending results newest to oldest. Default is asc."
+              },
+              {
+                "name": "dbt_filter",
+                "value": "",
+                "type": "query",
+                "description": "Daily-based time filter. You can allow the time filters to filter daily based. Otherwise, the filter will only trim the start and end of the output. Default is false."
+              },
+              {
+                "name": "st",
+                "value": "",
+                "type": "query",
+                "description": "Start time in UTC. (Eg. 17:30)"
+              },
+              {
+                "name": "et",
+                "value": "",
+                "type": "query",
+                "description": "End time in UTC. (Eg. 17:45)"
+              },
+              {
+                "name": "date_format",
+                "value": "",
+                "type": "query",
+                "description": "Choose date format: 'dt' for datetime or 'ts' for timestamp. [Default: timestamp]"
+              }
+            ]
+          },
+          "docs": "With the Stock Market Aggregates endpoint, you can get the OHLCV bars of the stock market."
+        },
+        {
+          "info": {
+            "name": "Stock Market Previous Close",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/stock/prev-close/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the stock"
+              }
+            ]
+          },
+          "docs": "With the Stock Market Previous Close API, you can get the historiacal end of day data and also previous day's last tick bar of the stock market."
+        },
+        {
+          "info": {
+            "name": "Stock Snapshot API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/snapshot/stock",
+            "params": [
+              {
+                "name": "quotes",
+                "value": "",
+                "type": "query",
+                "description": "Enable or disable last quotes. Default is true."
+              },
+              {
+                "name": "trades",
+                "value": "",
+                "type": "query",
+                "description": "Enable or disable last trades. Default is false."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "You can get the data from specific symbols by using this query. If you leave it empty, you will get the all available last data. (Separate symbols with commas.)"
+              }
+            ]
+          },
+          "docs": "Stock Snapshot API will give you access to all U.S Market with one single API request. You can get the latest trades, quotes or both of them with one request."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Forex",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Forex Last Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/forex/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Forex symbol that you want to get prices"
+              }
+            ]
+          },
+          "docs": "You can get the last quote for a symbol with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Forex Last Trade",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/trade/forex/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Forex symbol that you want to get the last trade price"
+              }
+            ]
+          },
+          "docs": "You can get the last trade price for a symbol with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Forex Aggregates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/forex/:symbol/:multiply/:time/:from/:to",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol Name"
+              },
+              {
+                "name": "multiply",
+                "value": "",
+                "type": "path",
+                "description": "Time Multiplier"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "path",
+                "description": "Size of the time. [minute, hour, day, week, month, quarter, year]"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End date"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the results. Default is 100, maximum allowed limit is 50000. Please set a limit if you are using the API in the production."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "You can sort the results by timestamp. asc will return ascending results oldest to newest, desc will return descending results newest to oldest. Default is asc."
+              },
+              {
+                "name": "dbt_filter",
+                "value": "",
+                "type": "query",
+                "description": "Daily-based time filter. You can allow the time filters to filter daily based. Otherwise, the filter will only trim the start and end of the output. Default is false."
+              },
+              {
+                "name": "st",
+                "value": "",
+                "type": "query",
+                "description": "Start time in UTC. (Eg. 17:30)"
+              },
+              {
+                "name": "et",
+                "value": "",
+                "type": "query",
+                "description": "End time in UTC. (Eg. 17:45)"
+              },
+              {
+                "name": "date_format",
+                "value": "",
+                "type": "query",
+                "description": "You can change the format of the date in the results. ts is timestamp, dt is datetime. [Default is dt]"
+              }
+            ]
+          },
+          "docs": "With the Forex Aggregates API, you can get the tick bars of the forex symbol."
+        },
+        {
+          "info": {
+            "name": "Forex Previous Close",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/forex/prev-close/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the currency"
+              }
+            ]
+          },
+          "docs": "With the Forex Previous Close API, you can get the previous day's last tick bar of the forex market."
+        },
+        {
+          "info": {
+            "name": "Forex Currency Converter API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/convert/forex/:from/:to/:amount",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "\"From\" symbol of the currency."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "\"To\" symbol of the currency."
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "path",
+                "description": "The amount to convert."
+              }
+            ]
+          },
+          "docs": "With this endpoint, you can convert the currencies with the real-time prices."
+        },
+        {
+          "info": {
+            "name": "Forex Snapshot API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/snapshot/forex",
+            "params": [
+              {
+                "name": "quotes",
+                "value": "",
+                "type": "query",
+                "description": "Enable or disable last quotes. Default is true."
+              },
+              {
+                "name": "trades",
+                "value": "",
+                "type": "query",
+                "description": "Enable or disable last trades. Default is false."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "You can get the data from specific symbols by using this query. If you leave it empty, you will get the all available last data. (Separate symbols with commas.)"
+              }
+            ]
+          },
+          "docs": "The Finage Forex Signal API is an AI-powered forecasting tool that delivers real-time trading signals based on widely used technical indicators such as RSI, MACD, SMA, and Bollinger Bands. Each response includes a recommended signal (buy, sell, or hold), a confidence score, and the full set of indicators used to generate the result."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Crypto",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Crypto Last Trade API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/crypto/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Crypto symbol that you want to get price"
+              }
+            ]
+          },
+          "docs": "You can get the prices in Real-Time with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Crypto Last Quote API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/quote/crypto/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol Name (eg: BTCUSD)"
+              }
+            ]
+          },
+          "docs": "You can get the last quote prices in Real-Time with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Crypto Aggregates API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/crypto/:symbol/:multiply/:time/:from/:to",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the crypto"
+              },
+              {
+                "name": "multiply",
+                "value": "",
+                "type": "path",
+                "description": "Time multiplier [1, 3, 5, 15, 30]"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "path",
+                "description": "Size of the time. [minute, hour, day, week, month]"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End date"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the results. Default is 100, maximum allowed limit is 50000. Please set a limit if you are using the API in the production."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "You can sort the results by timestamp. asc will return ascending results oldest to newest, desc will return descending results newest to oldest. Default is asc."
+              }
+            ]
+          },
+          "docs": "With the Crypto Market Aggregates API, you can get the tick bars of the crypto market."
+        },
+        {
+          "info": {
+            "name": "Crypto Previous Close API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/crypto/prev-close/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the crypto"
+              }
+            ]
+          },
+          "docs": "With the Crypto Previous Close endpoint, you can get the previous day's last tick bar of the crypto market."
+        },
+        {
+          "info": {
+            "name": "Crypto Converter API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/convert/crypto/:from/:to/:amount",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "\"From\" symbol of the crypto."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "\"To\" symbol of the crypto."
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "path",
+                "description": "The amount to convert."
+              }
+            ]
+          },
+          "docs": "You can convert crypto by using this API. (eg. BTC to ETH, USD to DOGE, SHIB to BTC etc.)"
+        },
+        {
+          "info": {
+            "name": "Crypto Snapshot API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/snapshot/crypto",
+            "params": [
+              {
+                "name": "quotes",
+                "value": "",
+                "type": "query",
+                "description": "Enable or disable last quotes. Default is true."
+              },
+              {
+                "name": "trades",
+                "value": "",
+                "type": "query",
+                "description": "Enable or disable last trades. Default is false."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "You can get the data from specific symbols by using this query. If you leave it empty, you will get the all available last data. (Separate symbols with commas.)"
+              }
+            ]
+          },
+          "docs": "Crypto Snapshot API will give you access to all available crypto with one single API request. You can get the latest trades, quotes or both of them with one request."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Indices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CFD Index Last Price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/index/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Index symbol that you want to get prices"
+              }
+            ]
+          },
+          "docs": "You can get the last quote for a symbol with this endpoint."
+        },
+        {
+          "info": {
+            "name": "CFD Index Market Aggregates API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/index/:symbol/:time/:from/:to",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol Name"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "path",
+                "description": "Size of the time. [1min, 5min, 15min, 30min, 45min, 1h, 2h, 4h, 1day, 1week, 1month]"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start date [yyyy-MM-dd]"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End date [yyyy-MM-dd]"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the results. Default is 100, maximum allowed limit is 5000. Please set a limit if you are using the API in the production."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "You can sort the results by timestamp. asc will return ascending results oldest to newest, desc will return descending results newest to oldest. Default is asc."
+              },
+              {
+                "name": "date_format",
+                "value": "",
+                "type": "query",
+                "description": "Choose date format: 'dt' for datetime or 'ts' for timestamp. [Default: timestamp]"
+              },
+              {
+                "name": "dbt_filter",
+                "value": "",
+                "type": "query",
+                "description": "Daily-based time filter. You can allow the time filters to filter daily based. Otherwise, the filter will only trim the start and end of the output. Default is false."
+              },
+              {
+                "name": "st",
+                "value": "",
+                "type": "query",
+                "description": "Start time in UTC. (Eg. 17:30)"
+              },
+              {
+                "name": "et",
+                "value": "",
+                "type": "query",
+                "description": "End time in UTC. (Eg. 17:45)"
+              }
+            ]
+          },
+          "docs": "With the Index Market Aggregates API, you can get the tick bars of the index market."
+        },
+        {
+          "info": {
+            "name": "CFD Index Previous Close API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/index/prev-close/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the index"
+              }
+            ]
+          },
+          "docs": "With the Index Previous Close API, you can get the previous day's last tick bar of the index market."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ETFs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CFD ETF Last Price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/etf/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "ETF symbol that you want to get prices"
+              }
+            ]
+          },
+          "docs": "You can get the last ETFs price for a symbol with this endpoint."
+        },
+        {
+          "info": {
+            "name": "CFD ETF Market Aggregates API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/etf/:symbol/:time/:from/:to",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the ETF"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "path",
+                "description": "Size of the time. [1min, 5min, 15min, 30min, 45min, 1h, 2h, 4h, 1day, 1week, 1month]"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start date [yyyy-MM-dd]"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End date [yyyy-MM-dd]"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the results. Default is 100, maximum allowed limit is 5000. Please set a limit if you are using the API in the production."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "You can sort the results by timestamp. asc will return ascending results oldest to newest, desc will return descending results newest to oldest. Default is asc."
+              },
+              {
+                "name": "date_format",
+                "value": "",
+                "type": "query",
+                "description": "Choose date format: 'dt' for datetime or 'ts' for timestamp. [Default: timestamp]"
+              },
+              {
+                "name": "dbt_filter",
+                "value": "",
+                "type": "query",
+                "description": "Daily-based time filter. You can allow the time filters to filter daily based. Otherwise, the filter will only trim the start and end of the output. Default is false."
+              },
+              {
+                "name": "st",
+                "value": "",
+                "type": "query",
+                "description": "Start time in UTC. (Eg. 17:30)"
+              },
+              {
+                "name": "et",
+                "value": "",
+                "type": "query",
+                "description": "End time in UTC. (Eg. 17:45)"
+              }
+            ]
+          },
+          "docs": "With the CFD ETF Market Aggregates API, you can get the tick bars of the ETF (Exchange Traded Fund) market."
+        },
+        {
+          "info": {
+            "name": "CFD ETF Previous Close API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/etf/prev-close/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the ETF"
+              }
+            ]
+          },
+          "docs": "With the ETF Previous Close API, you can get the previous day's last tick bar of the ETF market."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "UK Stocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "UK Market Last Price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/stock/uk/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "UK stock symbol that you want to get price"
+              }
+            ]
+          },
+          "docs": "Finage has more than 1200+ UK stock market data in delayed. You can get the last price for a symbol with this endpoint."
+        },
+        {
+          "info": {
+            "name": "UK Market Aggregates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/stock/global/uk/:symbol/:time/:from/:to",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the UK Market"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "path",
+                "description": "Size of the time. [1min, 5min, 15min, 30min, 45min, 1h, 2h, 4h, 1day, 1week, 1month]"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start date [yyyy-MM-dd]"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End date [yyyy-MM-dd]"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the results. Default is 100, maximum allowed limit is 5000. Please set a limit if you are using the API in the production."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "You can sort the results by timestamp. asc will return ascending results oldest to newest, desc will return descending results newest to oldest. Default is asc."
+              },
+              {
+                "name": "date_format",
+                "value": "",
+                "type": "query",
+                "description": "Choose date format: 'dt' for datetime or 'ts' for timestamp. [Default: timestamp]"
+              },
+              {
+                "name": "dbt_filter",
+                "value": "",
+                "type": "query",
+                "description": "Daily-based time filter. You can allow the time filters to filter daily based. Otherwise, the filter will only trim the start and end of the output. Default is false."
+              },
+              {
+                "name": "st",
+                "value": "",
+                "type": "query",
+                "description": "Start time in UTC. (Eg. 17:30)"
+              },
+              {
+                "name": "et",
+                "value": "",
+                "type": "query",
+                "description": "End time in UTC. (Eg. 17:45)"
+              }
+            ]
+          },
+          "docs": "With the UK Market Aggregates API, you can get the tick bars of the UK market."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Indian Stocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Indian Market Last Price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/stock/in/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Indian stock symbol that you want to get price"
+              }
+            ]
+          },
+          "docs": "Finage has more than 4900+ Indian market data in delayed. You can get the last price for a symbol with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Indian Market Aggregates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/stock/global/in/:symbol/:time/:from/:to",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the Indian Market"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "path",
+                "description": "Size of the time. [1min, 5min, 15min, 30min, 45min, 1h, 2h, 4h, 1day, 1week, 1month]"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start date [yyyy-MM-dd]"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End date [yyyy-MM-dd]"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the results. Default is 100, maximum allowed limit is 5000. Please set a limit if you are using the API in the production."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "You can sort the results by timestamp. asc will return ascending results oldest to newest, desc will return descending results newest to oldest. Default is asc."
+              },
+              {
+                "name": "date_format",
+                "value": "",
+                "type": "query",
+                "description": "Choose date format: 'dt' for datetime or 'ts' for timestamp. [Default: timestamp]"
+              },
+              {
+                "name": "dbt_filter",
+                "value": "",
+                "type": "query",
+                "description": "Daily-based time filter. You can allow the time filters to filter daily based. Otherwise, the filter will only trim the start and end of the output. Default is false."
+              },
+              {
+                "name": "st",
+                "value": "",
+                "type": "query",
+                "description": "Start time in UTC. (Eg. 17:30)"
+              },
+              {
+                "name": "et",
+                "value": "",
+                "type": "query",
+                "description": "End time in UTC. (Eg. 17:45)"
+              }
+            ]
+          },
+          "docs": "With the Indian Market Aggregates API, you can get the tick bars of the Indian market."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Canadian Stocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Canada Market Last Price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/stock/ca/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Canada stock symbol that you want to get price"
+              }
+            ]
+          },
+          "docs": "Finage has more than 2300+ Canada market data in real-time. You can get the last price for a symbol with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Canada Market Aggregates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/stock/global/ca/:symbol/:time/:from/:to",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the Canada Market"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "path",
+                "description": "Size of the time. [1min, 5min, 15min, 30min, 45min, 1h, 2h, 4h, 1day, 1week, 1month]"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start date [yyyy-MM-dd]"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End date [yyyy-MM-dd]"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the results. Default is 100, maximum allowed limit is 5000. Please set a limit if you are using the API in the production."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "You can sort the results by timestamp. asc will return ascending results oldest to newest, desc will return descending results newest to oldest. Default is asc."
+              },
+              {
+                "name": "date_format",
+                "value": "",
+                "type": "query",
+                "description": "Choose date format: 'dt' for datetime or 'ts' for timestamp. [Default: timestamp]"
+              },
+              {
+                "name": "dbt_filter",
+                "value": "",
+                "type": "query",
+                "description": "Daily-based time filter. You can allow the time filters to filter daily based. Otherwise, the filter will only trim the start and end of the output. Default is false."
+              },
+              {
+                "name": "st",
+                "value": "",
+                "type": "query",
+                "description": "Start time in UTC. (Eg. 17:30)"
+              },
+              {
+                "name": "et",
+                "value": "",
+                "type": "query",
+                "description": "End time in UTC. (Eg. 17:45)"
+              }
+            ]
+          },
+          "docs": "With the Canada Market Aggregates API, you can get the tick bars of the Canada market."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Russian Stocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Russian Market Last Price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/last/stock/ru/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Russian market symbol that you want to get the price"
+              }
+            ]
+          },
+          "docs": "Finage has more than 240+ Russian market data in real-time. You can get the last price for a symbol with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Russian Market Aggregates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/agg/stock/global/ru/:symbol/:time/:from/:to",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the Russian market"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "path",
+                "description": "Size of the time. [1min, 5min, 15min, 30min, 45min, 1h, 2h, 4h, 1day, 1week, 1month]"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start date [yyyy-MM-dd]"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End date [yyyy-MM-dd]"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the results. Default is 100, maximum allowed limit is 5000. Please set a limit if you are using the API in the production."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "You can sort the results by timestamp. asc will return ascending results oldest to newest, desc will return descending results newest to oldest. Default is asc."
+              },
+              {
+                "name": "date_format",
+                "value": "",
+                "type": "query",
+                "description": "Choose date format: 'dt' for datetime or 'ts' for timestamp. [Default: timestamp]"
+              },
+              {
+                "name": "dbt_filter",
+                "value": "",
+                "type": "query",
+                "description": "Daily-based time filter. You can allow the time filters to filter daily based. Otherwise, the filter will only trim the start and end of the output. Default is false."
+              },
+              {
+                "name": "st",
+                "value": "",
+                "type": "query",
+                "description": "Start time in UTC. (Eg. 17:30)"
+              },
+              {
+                "name": "et",
+                "value": "",
+                "type": "query",
+                "description": "End time in UTC. (Eg. 17:45)"
+              }
+            ]
+          },
+          "docs": "With the Russian Market Aggregates API, you can get the tick bars of the Russian market."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bonds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bond Last Rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/bonds/us/rate/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Bond symbol that you want to get the last rate"
+              }
+            ]
+          },
+          "docs": "With this endpoint, you can get the latest rates (percentage) of the bonds.\n\nGiven table below includes name and the symbol of the bonds. You can use the symbol name in the brackets to make API requests.\n\nUS 1M(DGS1MO)\nUS 3M(DGS3MO)\nUS 6M(DGS6MO)\nUS 1Y(DGS1)\nUS 2Y(DGS2)\nUS 5Y(DGS5)\nUS 7Y(DGS7)\nUS 10Y(DGS10)\nUS 20Y(DGS20)\nUS 30Y(DGS30)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fundamentals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Full Symbol List API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/symbol-list/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "Market type (us-stock, ca-stock, in-stock, ru-stock, forex, crypto, index)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Default page is 1"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "You can search symbol or name by this query. (eg: BTC, or Bitcoin) [Optional]"
+              }
+            ]
+          },
+          "docs": "You can download and view our symbols and get more details from the symbols page. If you want to get the all symbols with one endpoint, this endpoint will be useful in your product.\n\nYou can use our search endpoints to search one or more specific tickers.\n\nForex and Crypto pages include 500 symbols, US Market pages include 2500 symbols."
+        },
+        {
+          "info": {
+            "name": "Market News API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/news/market/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Stock symbol name"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the news. Default is 10 and maximum allowed limit is 30."
+              }
+            ]
+          },
+          "docs": "We provide you the latest market news via the Market News API."
+        },
+        {
+          "info": {
+            "name": "Forex News API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/news/forex/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Forex symbol name"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the news. Default is 10 and maximum allowed limit is 30."
+              }
+            ]
+          },
+          "docs": "By using our Forex News API, you can get the latest news about the currencies and the countries which is using the selected currency."
+        },
+        {
+          "info": {
+            "name": "Crypto News API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/news/cryptocurrency/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Crypto symbol name [Eg. BTC, ETH, DOGE]"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the news. Default is 10 and maximum allowed limit is 30."
+              }
+            ]
+          },
+          "docs": "Finage's Crypto News API is the fastest crypto news API in the market. Our In-Memory Cache Engine will cache the old news according to the request frequency. It will help you to build faster websites and applications. Your customers will have a quick access without waiting for the news to load."
+        },
+        {
+          "info": {
+            "name": "Market Status API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/marketstatus",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Check the specified country's market status. Default is US"
+              },
+              {
+                "name": "currencies",
+                "value": "",
+                "type": "query",
+                "description": "You can display or hide currencies part from the output. Default is true."
+              },
+              {
+                "name": "holidays",
+                "value": "",
+                "type": "query",
+                "description": "Display selected country's holidays. Default is false"
+              },
+              {
+                "name": "trading_hours",
+                "value": "",
+                "type": "query",
+                "description": "Display trading hours of the market. Default is false"
+              },
+              {
+                "name": "extended_hours",
+                "value": "",
+                "type": "query",
+                "description": "Display extended hours of the market. Default is false"
+              }
+            ]
+          },
+          "docs": "Market Status API is an endpoint that shows the market, forex and crypto statuses. You can check the market is closed, open or in extended hours with our Market Status API."
+        },
+        {
+          "info": {
+            "name": "Economic Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/economic-calendar",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date"
+              }
+            ]
+          },
+          "docs": "Our Economic Calendar API will show you the previous and the future events. Choose the from and to dates to receive a certain range of events.\n\nIn the economic calendar actual, previous, change, changePercentage or estimate value could be null according to the event or date of the event."
+        },
+        {
+          "info": {
+            "name": "Earnings Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/earning-calendar"
+          },
+          "docs": "Our Earnings Calendar API will show you the earnings release for companies.\n\nIn the earnings calendar eps, estimated_eps, revenue, or estimated_revenue value could be null according to the event or date of the event."
+        },
+        {
+          "info": {
+            "name": "IPO Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/ipo-calendar",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date"
+              }
+            ]
+          },
+          "docs": "Our IPO Calendar API will show you the recent and upcoming IPOs.\n\nIn the IPO calendar shares, price_range, market_cap, value could be null according to the event or date of the event."
+        },
+        {
+          "info": {
+            "name": "Stock Split Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/stock-split-calendar",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date"
+              }
+            ]
+          },
+          "docs": "Our Stock Split API will show you the splits data."
+        },
+        {
+          "info": {
+            "name": "Historical Stock Split Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/historical-stock-splits/AAPL",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "query",
+                "description": "Stock symbol name"
+              }
+            ]
+          },
+          "docs": "Our Historical Stock Split API will show you the splits data for a specific company."
+        },
+        {
+          "info": {
+            "name": "Dividends Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/dividend-calendar",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date"
+              }
+            ]
+          },
+          "docs": "Our Dividends API will show you the dividend data for stocks going back 30 years."
+        },
+        {
+          "info": {
+            "name": "Historical Dividends Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/historical-dividends/AAPL",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "query",
+                "description": "Stock symbol name"
+              }
+            ]
+          },
+          "docs": "Our Historical Dividends API will show you the dividends data for a specific company."
+        },
+        {
+          "info": {
+            "name": "Delisted Companies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/delisted-companies",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of the results. Default is 50."
+              }
+            ]
+          },
+          "docs": "Our Delisted Companies API will show you the companies delisted from exchanges."
+        },
+        {
+          "info": {
+            "name": "Cash Flow Statements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/cash-flow-statement/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "US Stock symbol"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Response limit"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period. Default is annual. [annual, quarter]"
+              }
+            ]
+          },
+          "docs": "Cash flow statements of the U.S. companies."
+        },
+        {
+          "info": {
+            "name": "Balance Sheet Statements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/balance-sheet-statements/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "US Stock symbol"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Response limit"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period. Default is annual. [annual, quarter]"
+              }
+            ]
+          },
+          "docs": "Balance sheet statements of the U.S. companies."
+        },
+        {
+          "info": {
+            "name": "Income Statements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/income-statement/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "US Stock symbol"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Response limit"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period. Default is annual. annual, quarter"
+              }
+            ]
+          },
+          "docs": "Income statements of the U.S. companies."
+        },
+        {
+          "info": {
+            "name": "International Filings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/income-statement/:symbol.exchange_code",
+            "params": [
+              {
+                "name": "symbol.exchange_code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "query",
+                "description": "International Stock symbol"
+              },
+              {
+                "name": "exchange_code",
+                "value": "",
+                "type": "query",
+                "description": "International Stock Exchanges"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period. Default is annual. [annual, quarter]"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Response limit"
+              }
+            ]
+          },
+          "docs": "Income statements for International companies.\n\nUK Stock Market: L\nCanadian Stock Market: TO\nRussian Stock Market: ME\nIndian Stock Market: NS\nHong Kong Stock Market: HK\nGermany Stock Market: DE\nEuropean Stock Market: PA\nNorway Stock Market: OL\nAustralian Stock Market: AX\nSwiss Stock Market: SW"
+        },
+        {
+          "info": {
+            "name": "Stock Market Details API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/detail/stock/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the stock"
+              }
+            ]
+          },
+          "docs": "With the Stock Market Details API, you can get the stock market details."
+        },
+        {
+          "info": {
+            "name": "Institutional Holders API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/funds/institutional-holder/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the stock"
+              }
+            ]
+          },
+          "docs": "The Institutional Holders API provides a more detailed view of the Institutional stock holdings."
+        },
+        {
+          "info": {
+            "name": "Mutual Fund Holders API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/funds/mutual-fund-holder/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the stock"
+              }
+            ]
+          },
+          "docs": "The Mutual Fund Holders API provides a more detailed view of the Mutual Fund Holders of the selected symbol."
+        },
+        {
+          "info": {
+            "name": "SEC RSS Feed API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/funds/rss-feed"
+          },
+          "docs": "The following SEC RSS feeds are a helpful online resource for staying current on the most recent materials posted to the SEC website, including EDGAR filings."
+        },
+        {
+          "info": {
+            "name": "Technical Indicators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/technical-indicator/:type/:time/:symbol",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "Indicator type. [ DEMA, EMA, SMA, WMA, RSI, TEMA, Williams, ADX ]"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "path",
+                "description": "Time interval [ daily, 1min , 5min, 15min, 30min, 1hour, 4hour ]"
+              },
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol of the stock"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period. Default is 10."
+              }
+            ]
+          },
+          "docs": "The Finage Technical Indicators API aims to provide dynamic results for a large number of technical analysis calculations such as DEMA, EMA, SMA, WMA, RSI, TEMA, Williams, ADX and others."
+        },
+        {
+          "info": {
+            "name": "Most Active US Stocks API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/market-information/us/most-actives"
+          },
+          "docs": "Most Active US Stocks API"
+        },
+        {
+          "info": {
+            "name": "Top US Stock Gainers API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/market-information/us/most-gainers"
+          },
+          "docs": "This API provides the top-gaining stocks today, including share price change and percentage."
+        },
+        {
+          "info": {
+            "name": "Top US Stock Losers API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/market-information/us/most-losers"
+          },
+          "docs": "This API provides the most losers stocks today, including share price change and percentage."
+        },
+        {
+          "info": {
+            "name": "Sector Performance API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/market-information/us/sector-performance"
+          },
+          "docs": "The Finage sector performance API provides specific sector performance daily basis including change and percentage."
+        },
+        {
+          "info": {
+            "name": "Shares Float API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/shares-float/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol name (eg. AAPL, AMZN)"
+              }
+            ]
+          },
+          "docs": "You can get the shares float by using this endpoint."
+        },
+        {
+          "info": {
+            "name": "Market Search API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/search/market/:market/:key",
+            "params": [
+              {
+                "name": "market",
+                "value": "",
+                "type": "path",
+                "description": "Market name like \"us\" , eu\" etc. (Finage only support US market for now.)"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Search key"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Result limit"
+              }
+            ]
+          },
+          "docs": "You can search markets by stock name or company description."
+        },
+        {
+          "info": {
+            "name": "Country Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/search/country/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Search key"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": " Result limit. [Default is 5]"
+              }
+            ]
+          },
+          "docs": "You can search the countries by country name or currency code."
+        },
+        {
+          "info": {
+            "name": "Country Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/detail/country/:country_code",
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "Country code [US, GB, DE, ...]"
+              }
+            ]
+          },
+          "docs": "You can get the country details by country code."
+        },
+        {
+          "info": {
+            "name": "Forex Currency Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/search/currency/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Search key"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Result limit. [Default is 5]"
+              }
+            ]
+          },
+          "docs": "You can search the forex currencies by symbol name or currency details."
+        },
+        {
+          "info": {
+            "name": "Forex Currency Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/detail/currency/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Forex currency symbol [eg. GBPUSD]"
+              }
+            ]
+          },
+          "docs": "You can get the currency details by currency name."
+        },
+        {
+          "info": {
+            "name": "Crypto Search API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/search/cryptocurrency/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Search key"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Result limit"
+              }
+            ]
+          },
+          "docs": "You can get the details of the crypto by its name or symbol."
+        },
+        {
+          "info": {
+            "name": "Crypto Details API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/detail/cryptocurrency/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Symbol or full name of the crypto"
+              }
+            ]
+          },
+          "docs": "You can search crypto by crypto name, description or symbol."
+        },
+        {
+          "info": {
+            "name": "Crypto Market Cap Ranks API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/list/cryptocurrency",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Output limit. Default is 10."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "This query will help you to use pagination. Default is 1."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "You can use DESC to get the most valuable crypto or ASC to get opposite. Default is DESC."
+              }
+            ]
+          },
+          "docs": "Crypto market cap rank endpoint will help you to get a list of crypto with name, thumbnail, market cap, and all-time high price with one API request."
+        },
+        {
+          "info": {
+            "name": "Crypto Detailed Last Price API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/last/crypto/detailed/btcusd",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "query",
+                "description": "Crypto symbol that you want to get price"
+              }
+            ]
+          },
+          "docs": "Finage has more than 5500+ cryptocurrency symbols in real-time."
+        },
+        {
+          "info": {
+            "name": "Financial Ratios",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/financial-ratios/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol name (eg. AAPL, AMZN)"
+              }
+            ]
+          },
+          "docs": "Evaluate a company’s financial health with the Financial Ratios API. This API delivers in-depth insights into profitability, liquidity, and efficiency ratios, allowing users to analyze operational and financial performance across multiple key metrics."
+        },
+        {
+          "info": {
+            "name": "Forex Technical Indicators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/signals/forex/:timeframe/:symbol",
+            "params": [
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "path",
+                "description": "The time interval for the technical indicators and signals (daily, weekly)."
+              },
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "The currency pair symbol you want to query (e.g., EURUSD, GBPUSD)."
+              }
+            ]
+          },
+          "docs": "The Forex Technical Indicators API is designed to provide dynamic results for a wide range of technical analysis calculations, including signals like confidence, as well as indicators such as SMA, RSI, MACD, Bollinger Bands, and more."
+        },
+        {
+          "info": {
+            "name": "Forex Signal API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/signals/forex/:interval/:symbol",
+            "params": [
+              {
+                "name": "interval",
+                "value": "",
+                "type": "path",
+                "description": "Specifies the time frame used for signal analysis. Available values: daily, weekly."
+              },
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "The market symbol for which the signal should be generated. Accepts currency pairs such as GBPUSD, EURUSD, USDJPY, etc."
+              }
+            ]
+          },
+          "docs": "The Finage Signal API is an forecasting tool that delivers real-time trading signals based on widely used technical indicators such as RSI, MACD, SMA, and Bollinger Bands. Each response includes a recommended signal (buy, sell, or hold), a confidence score, and the full set of indicators used to generate the result."
+        },
+        {
+          "info": {
+            "name": "US Stocks Signal API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.finage.co.uk/fnd/signals/us-stock/:interval/:symbol",
+            "params": [
+              {
+                "name": "interval",
+                "value": "",
+                "type": "path",
+                "description": "Specifies the time frame used for signal analysis. Available values: daily, weekly."
+              },
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "The market symbol for which the signal should be generated. Accepts us stocks symbols such as AAPL,TSLA,GOOGL, etc."
+              }
+            ]
+          },
+          "docs": "The Finage US Stocks Signal API is an forecasting tool that delivers real-time trading signals based on widely used technical indicators such as RSI, MACD, SMA, and Bollinger Bands. Each response includes a recommended signal (buy, sell, or hold), a confidence score, and the full set of indicators used to generate the result."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
