@@ -45,47 +45,180 @@ tags:
   - Real-Time Data
   - Public APIs
 apis:
-  - name: Finage Market Data API
-    description: >-
-      Read-only REST API for real-time and historical market data: last
-      quotes/trades, OHLCV aggregates, and snapshots for US and global stocks,
-      forex, crypto, CFD indices and ETFs, plus fundamentals (financial
-      statements, ratios, holders), economic/earnings/dividend calendars,
-      market news, technical indicators, and symbol search. Authenticated with
-      an apikey query parameter; responses are gzip-compressed JSON.
-    humanURL: https://finage.co.uk/docs/api
-    baseURL: https://api.finage.co.uk
-    tags:
-      - Finance
-      - Market Data
-    properties:
-      - type: Documentation
-        url: https://finage.co.uk/docs/api
-      - type: APIReference
-        url: https://finage.co.uk/docs/api
-      - type: OpenAPI
-        url: openapi/finage-openapi.yml
-      - type: Overlay
-        url: overlays/finage-openapi-overlay.yaml
-      - type: MCPServer
-        url: mcp/finage-mcp.yml
-  - name: Finage WebSocket Market Data Stream
-    description: >-
-      Real-time streaming trades and quotes for US stocks, global stocks,
-      forex, crypto, CFD indices, and ETFs over per-customer WebSocket URLs
-      (assigned subdomain and port on finage.ws, socket-key token
-      authentication, shown in the dashboard).
-    humanURL: https://finage.co.uk/docs/websocket
-    baseURL: https://api.finage.co.uk
-    tags:
-      - Finance
-      - Streaming
-    properties:
-      - type: Documentation
-        url: https://finage.co.uk/docs/websocket
-      - type: AsyncAPI
-        url: asyncapi/finage-websocket-asyncapi.yml
+- name: Finage WebSocket Market Data Stream
+  description: >-
+    Real-time streaming trades and quotes for US stocks, global stocks, forex, crypto, CFD indices, and
+    ETFs over per-customer WebSocket URLs (assigned subdomain and port on finage.ws, socket-key token
+    authentication, shown in the dashboard).
+  humanURL: https://finage.co.uk/docs/websocket
+  baseURL: https://api.finage.co.uk
+  tags:
+  - Finance
+  - Streaming
+  properties:
+  - type: Documentation
+    url: https://finage.co.uk/docs/websocket
+  - type: AsyncAPI
+    url: asyncapi/finage-websocket-asyncapi.yml
+- aid: finage:finage-bonds-api
+  name: Finage Bonds API
+  description: The Bonds API from Finage — 1 operation(s) for bonds.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - Bonds
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-bonds-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-canadian-stocks-api
+  name: Finage Canadian Stocks API
+  description: The Canadian Stocks API from Finage — 2 operation(s) for canadian stocks.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - Canadian Stocks
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-canadian-stocks-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-crypto-api
+  name: Finage Crypto API
+  description: The Crypto API from Finage — 6 operation(s) for crypto.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - Crypto
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-crypto-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-etfs-api
+  name: Finage ET Fs API
+  description: The ETFs API from Finage — 3 operation(s) for etfs.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - ETFs
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-etfs-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-forex-api
+  name: Finage Forex API
+  description: The Forex API from Finage — 6 operation(s) for forex.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - Forex
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-forex-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-fundamentals-api
+  name: Finage Fundamentals API
+  description: The Fundamentals API from Finage — 40 operation(s) for fundamentals.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - Fundamentals
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-fundamentals-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-indian-stocks-api
+  name: Finage Indian Stocks API
+  description: The Indian Stocks API from Finage — 2 operation(s) for indian stocks.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - Indian Stocks
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-indian-stocks-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-indices-api
+  name: Finage Indices API
+  description: The Indices API from Finage — 3 operation(s) for indices.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - Indices
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-indices-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-russian-stocks-api
+  name: Finage Russian Stocks API
+  description: The Russian Stocks API from Finage — 2 operation(s) for russian stocks.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - Russian Stocks
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-russian-stocks-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-uk-stocks-api
+  name: Finage UK Stocks API
+  description: The UK Stocks API from Finage — 2 operation(s) for uk stocks.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - UK Stocks
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-uk-stocks-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-us-stocks-api
+  name: Finage US Stocks API
+  description: The US Stocks API from Finage — 5 operation(s) for us stocks.
+  humanURL: https://finage.co.uk/docs/api
+  baseURL: https://api.finage.co.uk
+  tags:
+  - US Stocks
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-us-stocks-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
 common:
+  - type: Overlay
+    url: overlays/finage-openapi-overlay.yaml
+  - type: MCPServer
+    url: mcp/finage-mcp.yml
   - type: Authentication
     url: authentication/finage-authentication.yml
   - type: DomainSecurity
