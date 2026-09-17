@@ -114,20 +114,6 @@ apis:
     url: https://finage.co.uk/docs/api
   - type: APIReference
     url: https://finage.co.uk/docs/api
-- aid: finage:finage-etfs-api
-  name: Finage ET Fs API
-  description: The ETFs API from Finage — 3 operation(s) for etfs.
-  humanURL: https://finage.co.uk/docs/api
-  baseURL: https://api.finage.co.uk
-  tags:
-  - ETFs
-  properties:
-  - type: OpenAPI
-    url: openapi/finage-etfs-api-openapi.yml
-  - type: Documentation
-    url: https://finage.co.uk/docs/api
-  - type: APIReference
-    url: https://finage.co.uk/docs/api
 - aid: finage:finage-forex-api
   name: Finage Forex API
   description: The Forex API from Finage — 6 operation(s) for forex.
@@ -222,6 +208,20 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/finage-us-stocks-api-openapi.yml
+  - type: Documentation
+    url: https://finage.co.uk/docs/api
+  - type: APIReference
+    url: https://finage.co.uk/docs/api
+- aid: finage:finage-etfs-api
+  name: Finage ET Fs API
+  description: The ETFs API from Finage — 3 operation(s) for etfs.
+  humanURL: https://finage.co.uk/docs/websocket
+  baseURL: https://api.finage.co.uk
+  tags:
+  - ETFs
+  properties:
+  - type: OpenAPI
+    url: openapi/finage-etfs-api-openapi.yml
   - type: Documentation
     url: https://finage.co.uk/docs/api
   - type: APIReference
