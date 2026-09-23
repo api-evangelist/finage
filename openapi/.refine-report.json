@@ -1,0 +1,43 @@
+{
+  "provider": "finage",
+  "sources": [
+    "_original/finage-openapi.yml"
+  ],
+  "outputs": [
+    "finage-bonds-api-openapi.yml",
+    "finage-canadian-stocks-api-openapi.yml",
+    "finage-crypto-api-openapi.yml",
+    "finage-etfs-api-openapi.yml",
+    "finage-forex-api-openapi.yml",
+    "finage-fundamentals-api-openapi.yml",
+    "finage-indian-stocks-api-openapi.yml",
+    "finage-indices-api-openapi.yml",
+    "finage-russian-stocks-api-openapi.yml",
+    "finage-uk-stocks-api-openapi.yml",
+    "finage-us-stocks-api-openapi.yml"
+  ],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "finage-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "superseded outputs removed: finage-et-fs-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 12 total)"
+  ],
+  "skipped": [
+    "finage-bonds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-canadian-stocks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-crypto-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-et-fs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-forex-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-fundamentals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-indian-stocks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-indices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-russian-stocks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-uk-stocks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-us-stocks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
