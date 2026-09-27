@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Finage Market Data ET Fs API
+  title: Finage Market Data ETFs API
   description: Finage is a real-time and historical market data provider covering US and global stocks, forex, cryptocurrencies, indices, ETFs, bonds, and company fundamentals.
   version: 1.0.0
   contact:

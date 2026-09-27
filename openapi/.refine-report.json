@@ -16,22 +16,19 @@
     "finage-uk-stocks-api-openapi.yml",
     "finage-us-stocks-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "finage-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "superseded outputs removed: finage-et-fs-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 12 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "finage-bonds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "finage-canadian-stocks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "finage-crypto-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "finage-et-fs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finage-etfs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "finage-forex-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "finage-fundamentals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "finage-indian-stocks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
