@@ -3326,6 +3326,14 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  schemas:
+    Error:
+      type: object
+      description: Finage error envelope — a single error string.
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
   responses:
     Unauthorized:
       description: Missing or invalid API key, or your plan does not include this market.
@@ -3335,14 +3343,6 @@ components:
             $ref: '#/components/schemas/Error'
           example:
             error: Please use your APIKey to make a request.
-  schemas:
-    Error:
-      type: object
-      description: Finage error envelope — a single error string.
-      properties:
-        error:
-          type: string
-          description: Human-readable error message.
   securitySchemes:
     apiKey:
       type: apiKey
