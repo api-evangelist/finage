@@ -236,3 +236,148 @@ plans:
     Fundamentals, and Widgets Coverage; Extensive Historical Data; Unlimited API calls; Private Server Option; SLA
     Option; Trades, Quotes and OHLCV; Guaranteed 100% Price Accuracy; 24/7 Priority Support; Bundle and Save 21.5%!
   free_trial: true
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units: []
+  plans:
+  - name: Free API Plan
+    access: free
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Free Widget Plan
+    access: free
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Widgets
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Basic Main Market
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Basic All Market
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Basic Global Stocks RT
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Basic Global Stocks DT
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Basic CFDs ETF API Package
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Basic CFD Indices API Package
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Basic CFD ETFs & Indices API
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: U.S. Stock Market Data
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Real-Time Global Stocks Data
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Delayed Global Stocks Data
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Real-Time Crypto Data Feed
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Real-Time Forex Data Feed
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Forex & Crypto Data Bundle
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Financial Statements
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Global CFD Indices
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Global CFD ETFs
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Indices & ETFs Bundle
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: Main Market Feeds Bundle
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: All Market Feeds API Bundle
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
+  - name: All Market Feeds Bundle
+    access: other
+    model: subscription
+    model_how: stated
+    units: []
+    periods: []
