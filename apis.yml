@@ -49,6 +49,18 @@ tags:
   - Finance
   - Market Data
   - Stocks
+  - Foreign Exchange
+  - Cryptocurrency
+  - ETFs
+  - Indices
+  - Fundamentals
+  - Real-Time Data
+  - Public APIs
+  - Real-Time
+tags_raw:
+  - Finance
+  - Market Data
+  - Stocks
   - Forex
   - Cryptocurrency
   - ETFs
@@ -107,6 +119,8 @@ apis:
   humanURL: https://finage.co.uk/docs/api
   baseURL: https://api.finage.co.uk
   tags:
+  - Cryptocurrency
+  tags_raw:
   - Crypto
   properties:
   - type: OpenAPI
@@ -121,6 +135,8 @@ apis:
   humanURL: https://finage.co.uk/docs/api
   baseURL: https://api.finage.co.uk
   tags:
+  - Foreign Exchange
+  tags_raw:
   - Forex
   properties:
   - type: OpenAPI
