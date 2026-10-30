@@ -1,4 +1,4 @@
-# Finage (finage)
+# Finage
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,28 +64,148 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Finage is a stock, currency, cryptocurrency, indices, and ETFs real-time & historical data provider
+Finage is a London-based real-time and historical market data provider covering US and global stocks, forex, cryptocurrencies, CFD indices, ETFs, bonds, and company fundamentals. Data is delivered through a read-only REST API (api.finage.co.uk, API-key auth, 72 documented endpoints spanning quotes, trades, OHLCV aggregates, snapshots, financial statements, calendars, news, and technical indicators), dedicated per-customer WebSocket streams on finage.ws for real-time trades and quotes, and embeddable website widgets served from cdn.finage.co.uk. Plans range from a free 1,000 request/month tier through Basic API packages to Professional unlimited WebSocket feeds, with a 3-day free trial across all markets.
 
-**APIs.yml:** [apis.yml](apis.yml)
+**Areas:** Finance · Market Data · Stocks · Foreign Exchange · Cryptocurrency · ETFs · Indices · Fundamentals · Real-Time Data · Public APIs · Real-Time
 
-## Type
-- **x-type:** company
-- **x-tier:** 3 (bulk-registered from public-apis)
-- **source:** [public-apis/public-apis](https://github.com/public-apis/public-apis) — category: Finance
+## Finage on APIs.io
 
-## API
-- **Finage** — [Documentation](https://finage.co.uk)
+Everything profiled for Finage is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/finage/](https://apis.io/providers/finage/)** — or go straight to one of the APIs or properties below.
 
-## Tags
-Finance, Public APIs
+### APIs (12)
 
-## Notes
-This entry was bulk-registered as part of a public-apis catalog sweep on 2026-05-28.
-A real OpenAPI artifact will be added during a follow-up enrichment pass if the provider publishes one.
+- [Finage WebSocket Market Data Stream](https://apis.io/apis/finage/finage-websocket-market-data-stream/) — Real-time streaming trades and quotes for US stocks, global stocks, forex, crypto, CFD indices, and ETFs over per-customer WebSocket URLs (assigned…
+- [Finage Bonds API](https://apis.io/apis/finage/finage-bonds-api/) — The Bonds API from Finage — 1 operation(s) for bonds.
+- [Finage Canadian Stocks API](https://apis.io/apis/finage/finage-canadian-stocks-api/) — The Canadian Stocks API from Finage — 2 operation(s) for canadian stocks.
+- [Finage Crypto API](https://apis.io/apis/finage/finage-crypto-api/) — The Crypto API from Finage — 6 operation(s) for crypto.
+- [Finage Forex API](https://apis.io/apis/finage/finage-forex-api/) — The Forex API from Finage — 6 operation(s) for forex.
+- [Finage Fundamentals API](https://apis.io/apis/finage/finage-fundamentals-api/) — The Fundamentals API from Finage — 40 operation(s) for fundamentals.
+- [Finage Indian Stocks API](https://apis.io/apis/finage/finage-indian-stocks-api/) — The Indian Stocks API from Finage — 2 operation(s) for indian stocks.
+- [Finage Indices API](https://apis.io/apis/finage/finage-indices-api/) — The Indices API from Finage — 3 operation(s) for indices.
+- [Finage Russian Stocks API](https://apis.io/apis/finage/finage-russian-stocks-api/) — The Russian Stocks API from Finage — 2 operation(s) for russian stocks.
+- [Finage UK Stocks API](https://apis.io/apis/finage/finage-uk-stocks-api/) — The UK Stocks API from Finage — 2 operation(s) for uk stocks.
+- [Finage US Stocks API](https://apis.io/apis/finage/finage-us-stocks-api/) — The US Stocks API from Finage — 5 operation(s) for us stocks.
+- [Finage ET Fs API](https://apis.io/apis/finage/finage-etfs-api/) — The ETFs API from Finage — 3 operation(s) for etfs.
 
-## Timestamps
-- **Created:** 2026-05-28
-- **Modified:** 2026-05-28
+### Published properties
 
-## Maintainers
-- **Kin Lane** — kin@apievangelist.com
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Finage WebSocket Market Data Stream](https://apis.io/asyncapis/finage/finage-websocket-asyncapi/)
+
+#### Event channels (1)
+
+Individual events and webhooks the provider emits.
+
+- [/](https://apis.io/channels/finage/prices/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [finage](https://apis.io/servers/finage/finage/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Finage Market Data API](https://apis.io/collections/finage/open-finage/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Finage Openapi Overlay](https://apis.io/overlays/finage/finage-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Finage Authentication](https://apis.io/security/finage/finage-authentication/)
+- [Finage Domain Security](https://apis.io/security/finage/finage-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Finage Plans](https://apis.io/plans/finage/finage-plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Finage Rate Limits](https://apis.io/rate-limits/finage/finage-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://finage.co.uk)
+- [Documentation](https://finage.co.uk/docs/api)
+- [API reference](https://finage.co.uk/docs/api)
+- [Pricing](https://finage.co.uk/pricing)
+- [Sign up](https://moon.finage.co.uk/register)
+- [Support](https://finage.co.uk/company/frequently-asked-questions)
+- [Blog](https://finage.co.uk/blog)
+- [Terms of service](https://finage.co.uk/company/privacy-policy/terms-of-use)
+- [Privacy policy](https://finage.co.uk/company/privacy-policy/privacy-policy)
+- [GitHub](https://github.com/FinageLTD)
+
+## API Evangelist rating
+
+**Kin Score 44.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 24.3 |
+| Contract governance | 4.5 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 76.3 |
+
+**Agent readiness 34.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 28.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/finage/](https://apis.io/providers/finage/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Finage: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/finage/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
